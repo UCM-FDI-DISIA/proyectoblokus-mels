@@ -1,4 +1,4 @@
-## proyectoblokus-mels
+# proyectoblokus-mels
 
 Reunión 3 (26/03/2021)
 Participantes: Lucía Heredero, Elena Novillo y Esti Zubimendi.
