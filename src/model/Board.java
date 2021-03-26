@@ -5,20 +5,21 @@ public class Board {
 	// Array bidemensional 20x20, Constructor, pintarTablero, (rellenarTablero)
 	private static final int DIMENSION = 20;
 	private int[][]arrayTablero;
-	
+	private static final String[] LETRAS= {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T"};
+	private static String espacio=" ";
 	public Board() {
 		this.arrayTablero=new int[DIMENSION][DIMENSION];
 	}
 	
 	public String pintarTablero() {
-		int dimCelda=5;
+		int dimCelda=4;
 		int dimMargen=1;
 		String vertical="|";
 		String horizontal="-";
-		String interseccion=" ";
-		String interseccionVertical=" ";
+		String interseccion=espacio;
+		String interseccionVertical=espacio;
 		String interseccionHorizontal="-";
-		String esquina=" ";
+		String esquina=espacio;
 		String delCelda = repeat(horizontal, dimCelda);
 		String delFila = interseccionVertical+repeat(delCelda+interseccion, DIMENSION-1)
 		+delCelda+interseccionVertical;
@@ -30,16 +31,22 @@ public class Board {
 		
 		StringBuilder str = new StringBuilder();
 
-		str.append(bordeLinea);
+		//str.append(bordeLinea);
 	
 			
-			for (int j = 0; j < DIMENSION; j++) {
-				str.append(margen).append(vertical);
-				for (int i = 0; i < DIMENSION; i++) {
-					str.append(centre("", dimCelda)).append(vertical);
+			for (int j = 0; j <= DIMENSION; j++) {
+				if(j!=0) {
+					str.append(margen).append(vertical);
 				}
-				if (j != DIMENSION - 1) 
-					 str.append(delLinea);
+				for (int i = 0; i < DIMENSION; i++) {
+					if(j==0) {
+						str.append(espacio.repeat(3)+LETRAS[i]).append(esquina);
+					}else {
+						str.append(centre("", dimCelda)).append(vertical);
+					}
+				}
+				if (j <= DIMENSION && j!=0) 
+					 str.append(espacio.repeat(2)+j+delLinea);
 			    else 
 			    	 str.append(bordeLinea);  
 			}
@@ -62,9 +69,5 @@ public class Board {
 		   float end = start + len;
 		   return out.substring((int)start, (int)end);
 	}
-	@Override
-	public String toString() {
-		return pintarTablero();
-	}
-
+	
 }
