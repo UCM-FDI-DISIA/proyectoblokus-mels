@@ -1,12 +1,12 @@
-package objetos;
+package model;
 
-public class Tablero {
+public class Board {
 	
 	// Array bidemensional 20x20, Constructor, pintarTablero, (rellenarTablero)
 	private static final int DIMENSION = 20;
 	private int[][]arrayTablero;
 	
-	public Tablero() {
+	public Board() {
 		this.arrayTablero=new int[DIMENSION][DIMENSION];
 	}
 	
