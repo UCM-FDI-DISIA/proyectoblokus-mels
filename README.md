@@ -1,4 +1,17 @@
 # proyectoblokus-mels
+Reunión 4 (26/03/2021)
+Partcipantes: Sara Cano, María Crespo y María Díaz
+Qué se ha hecho hasta ahora?
+---
+Cambio en el Tablero y añadir coordenadas (letras y números) al tablero.
+Creación de la clase Player.java.
+Qué se va a hacer a partir de ahora?
+---
+Que pinte las piezas en el tablero.
+Conseguir puntos en el jugador.
+Dudas/Problemas
+---
+No hay.
 
 Reunión 3 (26/03/2021)
 Participantes: Lucía Heredero, Elena Novillo y Esti Zubimendi
