@@ -1,17 +1,5 @@
 # proyectoblokus-mels
 
-Reunión 3 (26/03/2021)
-Participantes: Lucía Heredero, Elena Novillo y Esti Zubimendi.
-Qué se ha hecho hasta ahora?
----
-Crear representación de todas las piezas con la clase Template.
-Qué se va a hacer a partir de ahora?
----
-Implementar la función para poner una pieza en el tablero
-Dudas/Problemas
----
-No hay.
-
 Reunión 2 (25/03/2021)
 Participantes: Todas.
 Qué se ha hecho hasta ahora?
