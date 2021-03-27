@@ -15,4 +15,22 @@ public class Piece {
 	public char[][] getPieza() {
 		return pieza;
 	}
+	public int calculaPuntos() {
+		int num = 0;
+		for (int i = 0; i < Template.TAM; ++i)
+			for (int j = 0; j < Template.TAM; ++j)
+				if (pieza[i][j] == 'P' || pieza[i][j] == 'I') ++num;
+		return num;		
+	}
+	public String toString() {
+		String p = "";
+		for (int i = 0; i < Template.TAM; ++i) {
+			for (int j = 0; j < Template.TAM; ++j) {
+				if (pieza[i][j] == 'P' || pieza[i][j] == 'I') p += color;
+				else p += ' ';
+			}
+			p += "\n";
+		}
+		return p;
+	}
 }

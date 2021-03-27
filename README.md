@@ -1,4 +1,18 @@
 # proyectoblokus-mels
+Reunión 5 (27/03/2021)
+Participantes: Lucía Heredero, Elena Novillo, Esti Zubimendi
+Qué se ha hecho hasta ahora?
+---
+Creación de las piezas
+Mostrar las piezas de un jugador de un color determinado (Amarillo o Rojo)
+Qué se va a hacer a partir de ahora?
+---
+Colocar las piezas en el tablero
+Pasar de turno
+Dudas/Problemas
+---
+No hay.
+
 Reunión 4 (26/03/2021)
 Partcipantes: Sara Cano, María Crespo y María Díaz
 Qué se ha hecho hasta ahora?

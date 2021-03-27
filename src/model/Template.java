@@ -1,13 +1,21 @@
 package model;
 
 public class Template {
-	public static final char PIEZA = 'P';
-	public static final char ESQUINA = 'E';
-	public static final char LADO = 'L';
-	public static final char NADA = ' ';
+	protected static final char PIEZA = 'P';
+	protected static final char ESQUINA = 'E';
+	protected static final char LADO = 'L';
+	protected static final char NADA = ' ';
 	// INICIO marca el primer cuadrado de PIEZA que se encuentra
 	// Sirve para cuando haya que colocar las piezas al comienzo de la partida
-	public static final char INICIO = 'I';
+	protected static final char INICIO = 'I';
+	protected static final int TAM = 7;
+	public static final int NUM_PIEZAS = 21;
+	public static final int PUNTOS_GANADOR = 15;
+	public static final int PUNTOS_CUADRADO = 20;
+	public static final char ROJO = 'R';
+	public static final char AMARILLO = 'A';
+	public static final char AZUL = 'Z';
+	public static final char VERDE = 'V';
 	
 	// *
 	private static final char[][] monomino = { 	
@@ -263,8 +271,12 @@ public class Template {
 			{NADA, NADA, NADA, NADA, NADA, NADA, NADA}
 	};
 	
-	private static char[][][] plantilla = {monomino, domino, trinomino1,
+	public static char[][][] plantilla = {monomino, domino, trinomino1,
 			trinomino2, tetromino1, tetromino2, tetromino3, tetromino4, tetromino5, 
 			pentomino1, pentomino2, pentomino3, pentomino4, pentomino5, pentomino6,
 			pentomino7, pentomino8, pentomino9, pentomino10, pentomino11, pentomino12};
+	
+	public static boolean esCuadrado(Piece p) {
+		return p.getPieza().equals(monomino);
+	}
 }
