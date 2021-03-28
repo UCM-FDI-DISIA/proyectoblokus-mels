@@ -1,4 +1,17 @@
 # proyectoblokus-mels
+
+Reunión 6 (28/03/2021)
+Participantes: Todas.
+Qué se ha hecho hasta ahora?
+---
+Repartir tareas restantes: dibujar pieza en el tablero, implementar los turnos de los jugadores e implementar los comandos.
+Qué se va a hacer a partir de ahora?
+---
+Las tareas arriba descritas.
+Dudas/Problemas
+---
+No hay.
+
 Reunión 5 (27/03/2021)
 Participantes: Lucía Heredero, Elena Novillo, Esti Zubimendi
 Qué se ha hecho hasta ahora?
