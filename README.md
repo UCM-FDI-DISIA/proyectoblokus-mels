@@ -1,4 +1,15 @@
 # proyectoblokus-mels
+Reunión 7 (28/03/2021)
+Participantes: Maria Diaz,Maria Crespo, Sara Cano.
+Qué se ha hecho hasta ahora?
+---
+Intentar que se pinte la pieza en el tablero.
+Qué se va a hacer a partir de ahora?
+---
+Conseguir que se pinte la pieza de forma adecuada.
+Dudas/Problemas
+---
+Hay muchos, no pinta la pieza de forma adecuada, genera la pieza de forma que no se ve el color del jugador...
 
 Reunión 6 (28/03/2021)
 Participantes: Todas.
