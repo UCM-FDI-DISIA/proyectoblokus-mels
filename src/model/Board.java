@@ -86,10 +86,9 @@ public class Board {
 			str.append(margen).append(vertical);
 			for (int i = 0; i < DIMENSION; i++) {
 				if(i==x && j==y) {
-						colocarPieza(p, x, y);
+						colocarPieza(p);
 					}else
 						str.append(centre("", dimCelda)).append(vertical);
-				
 			}
 			if (j < DIMENSION) 
 				 str.append(espacio.repeat(2)+j+delLinea);
@@ -97,7 +96,6 @@ public class Board {
 		    	 str.append(bordeLinea);  
 		}
 		return str.toString();
-		
 	}
 	// Devuelve el string de la pieza en la posicion que recorre el tablero (deberia ir en pieza y que 
 	// devuelcal p+=color y nos deja acceder.
@@ -112,7 +110,7 @@ public class Board {
 		}
 		return p;
 	}
-	private void colocarPieza(char[][] p, int x, int y) {
+	private void colocarPieza(char[][] p) {
 		for (int i = 0; i < p.length; i++) {
 			for (int j = 0; j < p.length; j++) {
 				if(p[i][j]=='P' || p[i][j]=='I') {
