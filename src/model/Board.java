@@ -51,10 +51,9 @@ public class Board {
 	}
 	
 	public boolean posicionValida(int x, int y) {
-		if(arrayTablero[x][y] == null && x <= DIMENSION && y <= DIMENSION) {
+		if(arrayTablero[x][y] == null && x <= DIMENSION && y <= DIMENSION && x >= 0 && y >= 0) 
 			return true;
-		}else
-			return false;
+		return false;
 		
 	}
 	 public String getPositionToString(char [][] pieza, int x, int y) {
@@ -121,6 +120,10 @@ public class Board {
 			}
 		}
 		
+	}
+
+	public boolean somethingInPosition(int x, int y, int p) {
+		return false;
 	}
 	
 }

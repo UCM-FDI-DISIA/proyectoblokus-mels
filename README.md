@@ -1,5 +1,19 @@
 # proyectoblokus-mels
-Reunión 7 (28/03/2021)
+
+
+Reunión 8 (29/03/2021)
+Participantes: Lucía Heredero, Elena Novillo, Esti Zubimendi
+Qué se ha hecho hasta ahora?
+---
+Modificar el Main y comandos.
+Qué se va a hacer a partir de ahora?
+---
+Rehacer el Board, terminar el Main y generar los turnos.
+Dudas/Problemas
+---
+La representación del Board no es la adecuada.
+
+Reunión 7 (29/03/2021)
 Participantes: Maria Diaz,Maria Crespo, Sara Cano.
 Qué se ha hecho hasta ahora?
 ---
