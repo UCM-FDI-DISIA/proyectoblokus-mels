@@ -1,5 +1,15 @@
 # proyectoblokus-mels
-
+Reunión 9 (30/03/2021)
+Participantes: Todas.
+Qué se ha hecho hasta ahora?
+---
+Añadir piezas, generar turnos, acabar juego y generar comandos.
+Qué se va a hacer a partir de ahora?
+---
+Nada hasta el siguiente sprint.
+Dudas/Problemas
+---
+No hay.
 
 Reunión 8 (29/03/2021)
 Participantes: Lucía Heredero, Elena Novillo, Esti Zubimendi

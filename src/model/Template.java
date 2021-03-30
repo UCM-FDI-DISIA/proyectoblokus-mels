@@ -5,8 +5,6 @@ public class Template {
 	protected static final char ESQUINA = 'E';
 	protected static final char LADO = 'L';
 	protected static final char NADA = ' ';
-	// INICIO marca el primer cuadrado de PIEZA que se encuentra
-	// Sirve para cuando haya que colocar las piezas al comienzo de la partida
 	protected static final char INICIO = 'I';
 	protected static final int TAM = 7;
 	public static final int NUM_PIEZAS = 21;
@@ -125,7 +123,7 @@ public class Template {
 	// *****
 	private static final char[][] pentomino1 = {
 			{NADA, NADA, ESQUINA, LADO, ESQUINA, NADA, NADA},
-			{NADA, NADA, LADO, PIEZA, LADO, NADA, NADA},
+			{NADA, NADA, LADO, INICIO, LADO, NADA, NADA},
 			{NADA, NADA, LADO, PIEZA, LADO, NADA, NADA},
 			{NADA, NADA, LADO, PIEZA, LADO, NADA, NADA},
 			{NADA, NADA, LADO, PIEZA, LADO, NADA, NADA},

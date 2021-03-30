@@ -1,7 +1,6 @@
 package player;
 
 import java.util.ArrayList;
-import java.util.List;
 import model.Piece;
 import model.Template;
 
@@ -37,7 +36,23 @@ public class Player {
 	public String toString() {
 		String p = "Jugador " + (color == Template.ROJO ? "rojo" : "amarillo") + ": \n\n";
 		p += "Piezas: \n";
-		for (int i = 1; i <= piezas.size(); ++i) p += i + ")" + piezas.get(i - 1).toString() + " ";
+		for (int i = 0; i < piezas.size(); ++i) p += i + ")" + piezas.get(i).toString() + " ";
 		return p;
+	}
+	
+	public boolean canSelectPiece(int posPieza) {
+		return posPieza >= 0 && posPieza < piezas.size();
+	}
+	
+	public Piece getPiece(int pos) {
+		return piezas.get(pos);
+	}
+	
+	public char getColor() {
+		return color;
+	}
+	
+	public void deletePiece(int pos) {
+		piezas.remove(pos);
 	}
 }
