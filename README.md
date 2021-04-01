@@ -1,4 +1,28 @@
 # proyectoblokus-mels
+Reunión 11 (01/04/2021)
+Participantes: Todas.
+Qué se ha hecho hasta ahora?
+---
+Crear la etiqueta del release v1.0
+Qué se va a hacer a partir de ahora?
+---
+Nada hasta el siguiente sprint.
+Dudas/Problemas
+---
+No hay.
+
+Reunión 10 (31/03/2021)
+Participantes: Todas.
+Qué se ha hecho hasta ahora?
+---
+Diagrama de clases.
+Qué se va a hacer a partir de ahora?
+---
+Nada hasta el siguiente sprint.
+Dudas/Problemas
+---
+No hay.
+
 Reunión 9 (30/03/2021)
 Participantes: Todas.
 Qué se ha hecho hasta ahora?
