@@ -1,4 +1,16 @@
 # proyectoblokus-mels
+Reunión 12 (07/04/2021)
+Participantes: Todas.
+Qué se ha hecho hasta ahora?
+---
+Modificar la Wiki y repartir las historias de usuario/tareas.
+Qué se va a hacer a partir de ahora?
+---
+Codificar la interfaz gráfica.
+Dudas/Problemas
+---
+Cómo se usa swing.
+
 Reunión 11 (01/04/2021)
 Participantes: Todas.
 Qué se ha hecho hasta ahora?
