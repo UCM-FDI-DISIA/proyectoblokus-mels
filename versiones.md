@@ -9,3 +9,4 @@
 31/03/2021 a las 19:00 - Sara acaba de hacer push, haced pull.
 01/04/2021 a las 11:30 - Sara acaba de hacer push, haced pull.
 07/04/2021 a las 20:40 - María Díaz acaba de hacer push, haced pull.
+15/04/2021 a las 19:20 - Esti ha hecho push, podéis hacer pull compis. X el poder de la amistad que tiene que soportar un multijugador en línea.
