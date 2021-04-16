@@ -1,5 +1,16 @@
 # proyectoblokus-mels
 
+## Reunión 14 (16/04/2021)
+**Participantes: Todas.**
+#### ¿Qué se ha hecho hasta ahora?
+Repartir tareas para el próximo __Sprint__.
+#### ¿Qué se va a hacer a partir de ahora?
+Implemetar GUI del Board y Piece.
+Refactorizar. Implementar MVC.
+Diagramas UML del MVC.
+#### Dudas/Problemas
+Muchas.
+
 ## Reunión 13 (15/07/2021)
 **Participantes: Todas.**
 #### ¿Qué se ha hecho hasta ahora?
