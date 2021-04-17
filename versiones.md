@@ -11,3 +11,4 @@
 07/04/2021 a las 20:40 - María Díaz acaba de hacer push, haced pull.
 15/04/2021 a las 19:20 - Esti ha hecho push, podéis hacer pull compis. X el poder de la amistad que tiene que soportar un multijugador en línea.
 16/04/2021 a las 18:30 - Esti ha hecho push.
+17/04/2021 a las 10:00 - Esti ha hecho los nuevos Diagramas UML.
