@@ -2,6 +2,8 @@ package control;
 
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+
 import model.*;
 import player.Player;
 
@@ -19,12 +21,15 @@ public class Main {
 	public static void main(String[] args) {
 		board = new Board();
 		players = new Player[NUM_JUGADORES];
-		initJugadores();
-		turno = 0; // Empieza el jugador rojo
-		scanner = new Scanner (System.in);
-		run();
-		System.out.println("EL JUEGO HA TERMINADO!");
-		System.out.println(calculaPuntuaciones());
+		//---------------------
+		Window window = new Window();
+		//---------------------
+//		initJugadores();
+//		turno = 0; // Empieza el jugador rojo
+//		scanner = new Scanner (System.in);
+//		run();
+//		System.out.println("EL JUEGO HA TERMINADO!");
+//		System.out.println(calculaPuntuaciones());
 	}
 	
 	public static void run() {

@@ -1,5 +1,16 @@
 # proyectoblokus-mels
 
+## Reunión 15 (17/04/2021)
+**Participantes: Elena Novillo y Lucía Heredero.**
+#### ¿Qué se ha hecho hasta ahora?
+Clase Window (la ventana de la interfaz gráfica).
+Hemos hecho los componentes que se corresponden con el tablero y las piezas
+(modelo provisional de la distribución de componentes).
+#### ¿Qué se va a hacer a partir de ahora?
+Implementar la lógica con la interfaz gráfica (actionPermormed, etc).
+#### Dudas/Problemas
+Cómo hacer para modificar el tamaño de un label dentro con un GridLayout.
+
 ## Reunión 14 (16/04/2021)
 **Participantes: Todas.**
 #### ¿Qué se ha hecho hasta ahora?
