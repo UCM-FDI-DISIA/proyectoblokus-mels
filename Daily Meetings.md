@@ -1,5 +1,15 @@
 # proyectoblokus-mels
 
+## Reunión 16 (18/04/2021)
+**Participantes: María Díaz y María Crespo.**
+#### ¿Qué se ha hecho hasta ahora?
+Cambiado el Template de Piezas de char a int
+Modificado el metodo que pinta el tablero para adapator a la interfaz gráfica y en la clase Window modificado el metodo para que pinte el tablero.
+#### ¿Qué se va a hacer a partir de ahora?
+Implementar la lógica con la interfaz gráfica (actionPermormed, etc).
+#### Dudas/Problemas
+Probleamas en la clase Window a la hora de pintar el tablero.
+
 ## Reunión 15 (17/04/2021)
 **Participantes: Elena Novillo y Lucía Heredero.**
 #### ¿Qué se ha hecho hasta ahora?
