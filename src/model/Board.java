@@ -1,20 +1,42 @@
 package model;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+
 public class Board {
 	private static final int DIMENSION = 20;
-	private static final char VACIO = ' ';
-	private static final String CASILLA_ARRIBA = "-----";
+	private static final int RESOLUCION= 500;
+	private static final Color COLOR_FONDO = Color.LIGHT_GRAY;
+	private static final Color COLOR_LINEA =Color.GRAY;
 	
-	private char[][] tablero; // El array bidimensional que lleva todo el contenido del tablero
+	private int[][] tablero; // El array bidimensional que lleva todo el contenido del tablero
 	
 	public Board() { // Inicializa el tablero como vacío
-		tablero = new char[DIMENSION][DIMENSION];
-		for (int i = 0; i < DIMENSION; i++)
-			for (int j = 0; j < DIMENSION; j++)
-				tablero[i][j] = VACIO;
+		tablero = new int[DIMENSION][DIMENSION];
 	}
-	
-	public String toString() {
+	public Color getColor(int posicion) {
+		 switch (posicion)
+	      {
+	         default: return COLOR_FONDO;
+	      }
+	}
+	public BufferedImage drawBoard() {
+		BufferedImage bi = new BufferedImage(RESOLUCION, RESOLUCION, BufferedImage.TYPE_INT_RGB);
+		int celda = RESOLUCION/DIMENSION;
+		Graphics gr = bi.getGraphics();
+		
+		for (int i = 0; i < DIMENSION; i++) {
+			for (int j = 0; j < DIMENSION; j++) {
+				gr.setColor(getColor(tablero[i][j]));
+				gr.fillRect(i * celda, j * celda, celda, celda);
+		        gr.setColor(COLOR_LINEA);
+		        gr.drawRect(i * celda, j * celda, celda, celda);
+			}
+		}
+		return bi;
+	}
+	/*public String toString() {
 		String tab = generaNumeracion() + "\n";
 		tab += generaLineas() + "\n"; // Generamos la linea inicial
 		for (int i = 0; i < DIMENSION; i++) {
@@ -25,14 +47,14 @@ public class Board {
 			tab += generaLineas() + "\n";
 		}
 		return tab;
-	}
+	}*/
 	
-	public String generaLineas() { // Genera las casillas 
+/*public String generaLineas() { // Genera las casillas 
 		String lineas = " ";
 		for (int i = 0; i < DIMENSION; i++) 
 			lineas += CASILLA_ARRIBA + " ";
 		return lineas;
-	}
+	}*/
 	
 	public String generaNumeracion() {
 		String numeros = "   ";

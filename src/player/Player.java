@@ -33,12 +33,12 @@ public class Player {
 		return numPuntos == 0;
 	}
 	
-	public String toString() {
+	/*public String toString() {
 		String p = "Jugador " + (color == Template.ROJO ? "rojo" : "amarillo") + ": \n\n";
 		p += "Piezas: \n";
 		for (int i = 0; i < piezas.size(); ++i) p += i + ")" + piezas.get(i).toString() + " ";
 		return p;
-	}
+	}*/
 	
 	public boolean canSelectPiece(int posPieza) {
 		return posPieza >= 0 && posPieza < piezas.size();

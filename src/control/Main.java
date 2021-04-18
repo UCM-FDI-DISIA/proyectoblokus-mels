@@ -90,10 +90,10 @@ public class Main {
 		System.out.println(players[turno % 2]);
 	}
 
-	private static void initJugadores() {
+/*	private static void initJugadores() {
 		char[] colors = {Template.ROJO, Template.AMARILLO, Template.AZUL, Template.VERDE};
 		for (int i = 0; i < NUM_JUGADORES; i++) players[i] = new Player(colors[i]);
-	}
+	}*/
 
 	private static boolean isFinished() {	
 		return cuentaSkip == NUM_JUGADORES;
@@ -107,11 +107,11 @@ public class Main {
 		cuentaSkip++;
 	}
 	
-	public static String calculaPuntuaciones() {
+	/*public static String calculaPuntuaciones() {
 		String puntuaciones = "Las puntuaciones de los jugadores son: ";
 		for (int i = 0; i < NUM_JUGADORES; i++)
 			puntuaciones += "Jugador " + (players[i].getColor() == Template.ROJO ? "rojo" : "amarillo") 
 							+ ": " + players[i].calculaPuntos() + " puntos \n";
 		return puntuaciones;
-	}
+	}*/
 }
