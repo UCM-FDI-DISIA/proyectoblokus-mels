@@ -36,35 +36,7 @@ public class Board {
 		}
 		return bi;
 	}
-	/*public String toString() {
-		String tab = generaNumeracion() + "\n";
-		tab += generaLineas() + "\n"; // Generamos la linea inicial
-		for (int i = 0; i < DIMENSION; i++) {
-			tab += "|";
-			for (int j = 0; j < DIMENSION; j++)
-				tab += "  " + tablero[i][j] + "  |";
-			tab += " " + (i + 1) + "\n";
-			tab += generaLineas() + "\n";
-		}
-		return tab;
-	}*/
-	
-/*public String generaLineas() { // Genera las casillas 
-		String lineas = " ";
-		for (int i = 0; i < DIMENSION; i++) 
-			lineas += CASILLA_ARRIBA + " ";
-		return lineas;
-	}*/
-	
-	public String generaNumeracion() {
-		String numeros = "   ";
-		for (int i = 1; i < 9; i++)
-			numeros += i + "     ";
-		numeros += "9    ";
-		for (int i = 10; i <= DIMENSION; i++)
-			numeros += i + "    ";
-		return numeros;
-	}
+
 	
 	public void addColor(int i, int j, char color) {
 		tablero[i][j] = color;

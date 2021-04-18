@@ -1,5 +1,14 @@
 # proyectoblokus-mels
 
+## Reunión 17 (18/04/2021)
+**Participantes: Todas.**
+#### ¿Qué se ha hecho hasta ahora?
+Planificar lo que se va implementar la semana que viene.
+#### ¿Qué se va a hacer a partir de ahora?
+Pintar las piezas e intentar usar el raton.
+#### Dudas/Problemas
+No sabemos que hay que documentar.
+
 ## Reunión 16 (18/04/2021)
 **Participantes: María Díaz y María Crespo.**
 #### ¿Qué se ha hecho hasta ahora?

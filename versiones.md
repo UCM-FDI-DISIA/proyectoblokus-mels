@@ -14,3 +14,4 @@
 17/04/2021 a las 10:00 - Esti ha hecho los nuevos Diagramas UML.
 17/04/2021 a las 19:30 - Elena ha hecho push, haced pull. c:
 18/04/2021 a las 12:32 - Maria Diaz ha hecho push, haced pull.
+18/04/2021 a las 18:40 - Maria Diaz ha hecho push, haced pull.
