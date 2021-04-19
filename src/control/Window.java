@@ -1,10 +1,15 @@
 package control;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
 import model.Board;
+import model.Piece;
+import model.Template;
+import player.Player;
 
 public class Window extends JFrame{
 	private static final long serialVersionUID = 1L;
@@ -13,24 +18,34 @@ public class Window extends JFrame{
 	public static final int heigth = 900;
 	public static final int width = 1500;
 	public static final String nombrePestanya = "Blokus";
-	private ImageIcon boardImage;
+	private ImageIcon boardImageBoard;
+	private ImageIcon boardImagePiece;
 	private Board board;
-	private JLabel label;
-	
+	private Piece piece;
+	private Player player;
+	private JLabel labelBoard;
+	private JLabel labelPiece;
 	
 	Window(){
 		super(nombrePestanya);
 		board = new Board();
+		player = new Player(Color.CYAN);
 		initGUI();
 	}
 	
 	private void initGUI() {
 		JPanel mainPanel = new JPanel();
-		boardImage = new ImageIcon(board.drawBoard());
-		label = new JLabel(boardImage);
+		boardImageBoard = new ImageIcon(board.drawBoard());
+		
+		labelBoard = new JLabel(boardImageBoard);
+		mainPanel.setBackground(Color.WHITE);
 		mainPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-		mainPanel.add(label);
-		mainPanel.add(createPiecesPanel());
+		mainPanel.add(labelBoard);
+		for (int i = 0; i < player.numPiezas(); i++) {
+			boardImagePiece = new ImageIcon(player.piece(i));
+			labelPiece = new JLabel(boardImagePiece);
+			mainPanel.add(labelPiece);
+		}
 		this.add(mainPanel);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,21 +54,12 @@ public class Window extends JFrame{
 	
 	// Seria para volver a llamar al tablero y que se actualice
 	private void createBoardPanel() {
-		 boardImage.setImage(board.drawBoard());
-		 label.repaint();
+		boardImageBoard.setImage(board.drawBoard());
+		labelBoard.repaint();
 		
 	}
 	
-	private JPanel createPiecesPanel() {
-		JPanel piecesPanel = new JPanel();
-		piecesPanel.setLayout(new GridLayout(6, 4, 5, 5));
-		for (int i = 0; i < 21; i++) {
-			JLabel pieza = new JLabel("Pieza " + (i + 1));
-			pieza.setBackground(Color.GREEN);
-			pieza.setForeground(Color.WHITE);
-			pieza.setOpaque(true);
-			piecesPanel.add(pieza);
-		}
-		return piecesPanel;
+	private void createPiecesPanel() {
+		
 	}
 }

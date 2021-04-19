@@ -6,10 +6,11 @@ public class Template {
 	public static final int NUM_PIEZAS = 21;
 	public static final int PUNTOS_GANADOR = 15;
 	public static final int PUNTOS_CUADRADO = 20;
-	// 1 = esquina
-	// 2 = lado
-	// 3 = pieza
-	// 4 = inicio
+	protected static final int PIEZA = 3;
+	protected static final int INICIO = 4;
+	protected static final int LADO = 2;
+	protected static final int ESQUINA = 1;
+
 	
 	// *
 	private static final int[][] monomino = { 	

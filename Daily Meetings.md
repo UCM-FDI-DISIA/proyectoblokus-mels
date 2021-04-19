@@ -1,6 +1,15 @@
 # proyectoblokus-mels
 
 ## Reunión 17 (18/04/2021)
+**Participantes: Maria Crespo, Maria Diaz y Lucia Heredero.**
+#### ¿Qué se ha hecho hasta ahora?
+Pintar las piezas en la interfaz grafica.
+#### ¿Qué se va a hacer a partir de ahora?
+Intentar usar el raton para coger las piezas.
+#### Dudas/Problemas
+Como hacer que las piezas salgan en horizontal y en el lado derecho.
+
+## Reunión 17 (18/04/2021)
 **Participantes: Todas.**
 #### ¿Qué se ha hecho hasta ahora?
 Planificar lo que se va implementar la semana que viene.

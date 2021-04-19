@@ -50,7 +50,7 @@ public class Board {
 		return tablero[i][j] == ' ';
 	}
 	
-	public boolean canAddPiece(int x, int y, Piece pieza, boolean primera) { // Comprobaciones para la parte de la pieza
+/*	public boolean canAddPiece(int x, int y, Piece pieza, boolean primera) { // Comprobaciones para la parte de la pieza
 		boolean hayEsquinas = primera;
 		for (int i = 0; i < Template.TAM; i++) {
 			int a = x + i - pieza.getXInicio() - 1;
@@ -86,5 +86,5 @@ public class Board {
 			return true;
 		}
 		else return false;
-	}
+	}*/
 }

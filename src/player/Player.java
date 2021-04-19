@@ -1,16 +1,19 @@
 package player;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import model.Piece;
 import model.Template;
 
 public class Player {
 	private ArrayList<Piece> piezas;
-	private char color;
+	private Color color;
 	private Piece ultima;
 	
 	// Parte de piezas:
-	public Player(char color) {
+	public Player(Color color) {
 		this.color = color;
 		piezas = new ArrayList<Piece>();
 		initPiezas();
@@ -33,12 +36,10 @@ public class Player {
 		return numPuntos == 0;
 	}
 	
-	/*public String toString() {
-		String p = "Jugador " + (color == Template.ROJO ? "rojo" : "amarillo") + ": \n\n";
-		p += "Piezas: \n";
-		for (int i = 0; i < piezas.size(); ++i) p += i + ")" + piezas.get(i).toString() + " ";
-		return p;
-	}*/
+	public BufferedImage piece(int pieza) {
+		return piezas.get(pieza).drawPiece();
+		
+	}
 	
 	public boolean canSelectPiece(int posPieza) {
 		return posPieza >= 0 && posPieza < piezas.size();
@@ -48,11 +49,14 @@ public class Player {
 		return piezas.get(pos);
 	}
 	
-	public char getColor() {
+	public Color getColor() {
 		return color;
 	}
 	
 	public void deletePiece(int pos) {
 		piezas.remove(pos);
+	}
+	public int numPiezas() {
+		return piezas.size();
 	}
 }

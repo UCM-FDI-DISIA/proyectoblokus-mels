@@ -32,7 +32,7 @@ public class Main {
 //		System.out.println(calculaPuntuaciones());
 	}
 	
-	public static void run() {
+/*	public static void run() {
 		printGame();
     	while(!isFinished()) {
     		String[] cmd = scanner.nextLine().toLowerCase().split(" ");
@@ -77,7 +77,7 @@ public class Main {
     		}
     	}
 
-	}
+	}*/
 	private static String getHelpMsg() {
 		return "Los comandos a utilizar: \n"
 				+ "[h]elp: muestra este mensaje, \n"
