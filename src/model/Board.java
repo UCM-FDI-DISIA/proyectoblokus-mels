@@ -2,7 +2,10 @@ package model;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
+
+import javax.tools.Diagnostic;
 
 public class Board {
 	private static final int DIMENSION = 20;
@@ -11,15 +14,25 @@ public class Board {
 	private static final Color COLOR_LINEA =Color.GRAY;
 	
 	private int[][] tablero; // El array bidimensional que lleva todo el contenido del tablero
+	private Color[][] aux;
 	
 	public Board() { // Inicializa el tablero como vacío
 		tablero = new int[DIMENSION][DIMENSION];
+		aux = new Color[DIMENSION][DIMENSION];
+		initTableroAux();
 	}
 	public Color getColor(int posicion) {
 		 switch (posicion)
 	      {
 	         default: return COLOR_FONDO;
 	      }
+	}
+	public void initTableroAux() {
+		for (int i = 0; i < DIMENSION; i++) {
+			for (int j = 0; j < DIMENSION; j++) {
+				aux[i][j]=Color.LIGHT_GRAY;
+			}
+		}
 	}
 	public BufferedImage drawBoard() {
 		BufferedImage bi = new BufferedImage(RESOLUCION, RESOLUCION, BufferedImage.TYPE_INT_RGB);
@@ -28,7 +41,7 @@ public class Board {
 		
 		for (int i = 0; i < DIMENSION; i++) {
 			for (int j = 0; j < DIMENSION; j++) {
-				gr.setColor(getColor(tablero[i][j]));
+				gr.setColor(aux[i][j]);
 				gr.fillRect(i * celda, j * celda, celda, celda);
 		        gr.setColor(COLOR_LINEA);
 		        gr.drawRect(i * celda, j * celda, celda, celda);
@@ -42,8 +55,8 @@ public class Board {
 		tablero[i][j] = color;
 	}
 	
-	public boolean coordInPlane(int x, int y) {
-		return x >= 0 && x < DIMENSION && y >= 0 && y < DIMENSION;
+	public Point coordInPlane(Point p, int res) {
+		return new Point(p.x /(res/DIMENSION), p.y/(res/DIMENSION));
 	}
 	
 	public boolean isEmpty(int i, int j) {
@@ -78,13 +91,16 @@ public class Board {
 				if (pieza.esPieza(i, j) || pieza.esInicio(i, j)) addColor(a, b, pieza.getColor());
 			}
 		}
-	}
-	
-	public boolean addPieza(Piece pieza, int x, int y, boolean primera) {
-		if (canAddPiece(x, y, pieza, primera)) {
-			colocarPieza(x, y, pieza);
-			return true;
-		}
-		else return false;
 	}*/
+	
+	public void addPieza(Piece pieza, int x, int y, boolean primera) {
+		for (int i = 0; i < Template.TAM; i++) {
+			for (int j = 0; j < Template.TAM; j++) {
+				if(pieza.esInicio(i, j) || pieza.esPieza(i, j)) {
+					tablero[i+x][j+y]=pieza.getPieza()[i][j];
+					aux[i+x][j+y]=pieza.getColor();
+				}
+			}
+		}
+	}
 }

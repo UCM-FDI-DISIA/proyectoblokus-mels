@@ -46,6 +46,10 @@ public class Window extends JFrame{
 			labelPiece = new JLabel(boardImagePiece);
 			mainPanel.add(labelPiece);
 		}
+		Mouse m = new Mouse(player, board,this);
+		labelBoard.addMouseListener(m);
+		labelBoard.addMouseMotionListener(m);
+		
 		this.add(mainPanel);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,7 +57,7 @@ public class Window extends JFrame{
 	}
 	
 	// Seria para volver a llamar al tablero y que se actualice
-	private void createBoardPanel() {
+	public void createBoardPanel() {
 		boardImageBoard.setImage(board.drawBoard());
 		labelBoard.repaint();
 		

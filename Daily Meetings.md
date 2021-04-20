@@ -3,6 +3,17 @@
 ## Reunión 17 (18/04/2021)
 **Participantes: Maria Crespo, Maria Diaz y Lucia Heredero.**
 #### ¿Qué se ha hecho hasta ahora?
+Crear un tablero auxiliar para poner la pieza.
+Intentar colocar una pieza con raton
+#### ¿Qué se va a hacer a partir de ahora?
+Intentar usar el raton para coger las piezas.
+#### Dudas/Problemas
+Como identificar cada pieza y como seleccionarla.
+Meter pieza en el tablero.
+
+## Reunión 17 (18/04/2021)
+**Participantes: Maria Crespo, Maria Diaz y Lucia Heredero.**
+#### ¿Qué se ha hecho hasta ahora?
 Pintar las piezas en la interfaz grafica.
 #### ¿Qué se va a hacer a partir de ahora?
 Intentar usar el raton para coger las piezas.

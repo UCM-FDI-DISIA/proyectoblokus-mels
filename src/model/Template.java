@@ -2,7 +2,7 @@ package model;
 
 public class Template {
 
-	protected static final int TAM = 7;
+	public static final int TAM = 7;
 	public static final int NUM_PIEZAS = 21;
 	public static final int PUNTOS_GANADOR = 15;
 	public static final int PUNTOS_CUADRADO = 20;

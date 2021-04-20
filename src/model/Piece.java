@@ -49,17 +49,7 @@ public class Piece {
 		return bi;
 		
 	}
-	public String toString() {
-		String p = "";
-		for (int i = 0; i < Template.TAM; ++i) {
-			for (int j = 0; j < Template.TAM; ++j) {
-				if (pieza[i][j] == 3 || pieza[i][j] == 4) p += color;
-				else p += ' ';
-			}
-			p += "\n";
-		}
-		return p;
-	}
+	
 	
 	public boolean esPieza(int i, int j) {
 		return pieza[i][j] == 3;
