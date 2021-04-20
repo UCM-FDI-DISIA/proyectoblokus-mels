@@ -47,9 +47,8 @@ public class Window extends JFrame{
 			mainPanel.add(labelPiece);
 		}
 		Mouse m = new Mouse(player, board,this);
-		labelBoard.addMouseListener(m);
+		labelPiece.addMouseListener(m);
 		labelBoard.addMouseMotionListener(m);
-		
 		this.add(mainPanel);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
