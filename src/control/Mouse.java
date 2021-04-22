@@ -10,18 +10,19 @@ import java.awt.event.MouseWheelListener;
 import model.Board;
 import model.Template;
 import player.Player;
+import view.GamePrinter;
 
 public class Mouse implements MouseListener, MouseMotionListener, MouseWheelListener{
 	private Player player;
 	private Board board;
 	private Point posicion;
-	private Window window;
+	private GamePrinter gamePrinter;
 	private int pieza;
 	
-	public Mouse(Player player, Board board,Window window) {
+	public Mouse(Player player, Board board,GamePrinter gamePrinter) {
 		this.player = player;
 		this.board = board;
-		this.window = window;
+		this.gamePrinter = gamePrinter;
 	}
 	@Override
 	public void mouseWheelMoved(MouseWheelEvent e) {
@@ -43,8 +44,8 @@ public class Mouse implements MouseListener, MouseMotionListener, MouseWheelList
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		board.addPieza(player.getPiece(pieza),posicion.x, posicion.y, true);
-		window.createBoardPanel();
+		board.addPieza(player.getPiece(pieza), posicion.x - 5, posicion.y - 5, true);
+		//gamePrinter.createBoardPanel();
 	}
 
 	@Override

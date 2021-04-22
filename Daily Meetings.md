@@ -1,6 +1,26 @@
 # proyectoblokus-mels
 
-## Reunión 17 (18/04/2021)
+## Reunión 21 (22/04/2021)
+**Participantes: María Crespo, Lucía Heredero, María Díaz y Elena Novillo.**
+#### ¿Qué se ha hecho hasta ahora?
+Modificar la estructura de la pantalla para que las piezas se encuentren bien colocadas.
+Modificar la ubicación del MouseListener.
+#### ¿Qué se va a hacer a partir de ahora?
+Averiguar cómo se implementa correctamente la interfaz MouseListener.
+Identificar la posición en la que se encuentran las piezas/casillas.
+#### Dudas/Problemas
+Ninguno.
+
+## Reunión 20 (22/04/2021)
+**Participantes: Todas.**
+#### ¿Qué se ha hecho hasta ahora?
+Planificar la introducción de los patrones de diseño: Observador y MVC.
+#### ¿Qué se va a hacer a partir de ahora?
+Modificar la estructura para que se ajuste a los patrones.
+#### Dudas/Problemas
+Ninguno.
+
+## Reunión 19 (20/04/2021)
 **Participantes: Maria Crespo, Maria Diaz y Lucia Heredero.**
 #### ¿Qué se ha hecho hasta ahora?
 Crear un tablero auxiliar para poner la pieza.
@@ -11,7 +31,7 @@ Intentar usar el raton para coger las piezas.
 Como identificar cada pieza y como seleccionarla.
 Meter pieza en el tablero.
 
-## Reunión 17 (18/04/2021)
+## Reunión 18 (19/04/2021)
 **Participantes: Maria Crespo, Maria Diaz y Lucia Heredero.**
 #### ¿Qué se ha hecho hasta ahora?
 Pintar las piezas en la interfaz grafica.

@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 
 import model.*;
 import player.Player;
+import view.GamePrinter;
 
 public class Main {
 	public static final int NUM_JUGADORES = 2;
@@ -22,7 +23,7 @@ public class Main {
 		board = new Board();
 		players = new Player[NUM_JUGADORES];
 		//---------------------
-		Window window = new Window();
+		GamePrinter gamePrinter = new GamePrinter();
 		//---------------------
 //		initJugadores();
 //		turno = 0; // Empieza el jugador rojo

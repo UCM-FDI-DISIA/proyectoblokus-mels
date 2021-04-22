@@ -36,11 +36,6 @@ public class Player {
 		return numPuntos == 0;
 	}
 	
-	public BufferedImage piece(int pieza) {
-		return piezas.get(pieza).drawPiece();
-		
-	}
-	
 	public boolean canSelectPiece(int posPieza) {
 		return posPieza >= 0 && posPieza < piezas.size();
 	}

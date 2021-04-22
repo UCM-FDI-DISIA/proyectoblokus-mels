@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 public class Piece {	
 	private int[][] pieza;
 	private Color color;
-	private static final int RESOLUCION=100;
+	private static final int RESOLUCION = 120;
 	
 	public Piece(int[][] pieza, Color color) {
 		this.pieza = pieza;
@@ -30,7 +30,7 @@ public class Piece {
 		return num;		
 	}
 	
-	public BufferedImage drawPiece() {
+	public BufferedImage drawPiece(Color c) {
 		BufferedImage bi = new BufferedImage(RESOLUCION, RESOLUCION, BufferedImage.TYPE_INT_RGB);
 		int celda = RESOLUCION/Template.TAM;
 		Graphics gr = bi.getGraphics();
@@ -39,7 +39,7 @@ public class Piece {
 		for (int i = 0; i < Template.TAM; i++) {
 			for (int j = 0; j < Template.TAM; j++) {
 				if(pieza[i][j] == Template.PIEZA || pieza[i][j] == Template.INICIO) {
-					gr.setColor(color.CYAN);
+					gr.setColor(c);
 					gr.fillRect(i * celda, j * celda, celda, celda);
 			        gr.setColor(color.BLACK);
 			        gr.drawRect(i * celda, j * celda, celda, celda);
