@@ -1,5 +1,15 @@
 # proyectoblokus-mels
 
+## Reunión 22 (25/04/2021)
+**Participantes: María Crespo, Lucía Heredero, María Díaz y Elena Novillo.**
+#### ¿Qué se ha hecho hasta ahora?
+Conseguido seleccionar las coordenadas de la ventana respecto al modelo.
+#### ¿Qué se va a hacer a partir de ahora?
+Mover las piezas al tablero.
+Generar los turnos.
+#### Dudas/Problemas
+Transparencia de las piezas a la hora de moverlas.
+
 ## Reunión 21 (22/04/2021)
 **Participantes: María Crespo, Lucía Heredero, María Díaz y Elena Novillo.**
 #### ¿Qué se ha hecho hasta ahora?

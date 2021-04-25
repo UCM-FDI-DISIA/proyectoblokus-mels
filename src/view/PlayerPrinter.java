@@ -6,6 +6,8 @@ import java.awt.GridLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import model.Piece;
 import player.Player;
 
 public class PlayerPrinter {
@@ -19,5 +21,8 @@ public class PlayerPrinter {
 			playerPanel.add(labelPiece);
 		}
 		return playerPanel;
+	}
+	public int getPiezaVentana(Player p, int coordX, int coordY) {
+		return p.getPiezaVentana(coordX, coordY);
 	}
 }

@@ -55,9 +55,9 @@ public class Board {
 		tablero[i][j] = color;
 	}
 	
-	public Point coordInPlane(Point p, int res) {
-		return new Point(p.x /(res/DIMENSION), p.y/(res/DIMENSION));
-	}
+//	public Point coordInPlane(Point p, int res) {
+//		return new Point(p.x /(res/DIMENSION), p.y/(res/DIMENSION));
+//	}
 	
 	public boolean isEmpty(int i, int j) {
 		return tablero[i][j] == ' ';
@@ -102,5 +102,21 @@ public class Board {
 				}
 			}
 		}
+	}
+	public Point getCasilla(int coordX, int coordY) {
+		int tamCelda = RESOLUCION/DIMENSION;
+		Point p = null;
+		for (int i = 0; i < RESOLUCION; i = tamCelda + i) {
+			int ventanaX = i;
+			for (int j = 0; j < RESOLUCION; j = tamCelda + j) {
+				int ventanaY = 80 + j;
+				if (coordX >= ventanaX && coordY >= ventanaY && 
+					coordX <= ventanaX + tamCelda && coordY <= ventanaY + tamCelda) {
+					p = new Point(j / tamCelda, i / tamCelda);
+					break;
+				}
+			}
+		}
+		return p;
 	}
 }

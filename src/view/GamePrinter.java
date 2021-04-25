@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import javax.swing.*;
 
 import model.Board;
+import model.Piece;
 import player.Player;
 
 public class GamePrinter extends JFrame {
@@ -27,26 +28,31 @@ public class GamePrinter extends JFrame {
 		super(nombrePestanya);
 		board = new Board();
 		boardPrinter = new BoardPrinter();
-		player = new Player(Color.CYAN);
+		player = new Player(Color.GREEN);
 		playerPrinter = new PlayerPrinter();
 		initGUI();
 	}
 	
 	private void initGUI() {
 		this.addMouseListener(new MouseListener() {
+			Point pointInicio = null;
 			
 			public void mouseClicked(MouseEvent e) {
-				
+				pointInicio = new Point(e.getX(), e.getY());
 			}
 
 			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
+				mouseClicked(e);
 			}
 
 			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
+				int selectedPiece = playerPrinter.getPiezaVentana(player, pointInicio.x, pointInicio.y);
+				if (selectedPiece == -1) System.out.println("No has cogido ninguna pieza, chaval");
+				else System.out.println("Has escogido la pieza " + selectedPiece);
+				Point p = boardPrinter.getCasilla(board, e.getX(), e.getY());
+				if (p == null) System.out.println("Fuerita del tablero");
+				else
+					System.out.println("El ratón acaba en " + p.x  + " " + p.y);
 			}
 
 			public void mouseEntered(MouseEvent e) {
@@ -65,7 +71,7 @@ public class GamePrinter extends JFrame {
 		boardImageBoard = new ImageIcon(boardPrinter.printBoard(board));
 		labelBoard = new JLabel(boardImageBoard);
 		mainPanel.setBackground(Color.WHITE);
-		mainPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
+		mainPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 		mainPanel.add(labelBoard);
 		mainPanel.add(playerPanel);
 		
