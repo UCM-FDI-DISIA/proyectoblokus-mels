@@ -1,5 +1,15 @@
 # proyectoblokus-mels
 
+## Reunión 23 (28/04/2021)
+**Participantes: María Crespo, Lucía Heredero y Elena Novillo.**
+#### ¿Qué se ha hecho hasta ahora?
+Conseguir que el usuario pueda desplazar piezas al tablero.
+#### ¿Qué se va a hacer a partir de ahora?
+Eliminar las piezas del array de jugadores
+Generar los turnos.
+#### Dudas/Problemas
+Cómo sustituir un panel por otro.
+
 ## Reunión 22 (25/04/2021)
 **Participantes: María Crespo, Lucía Heredero, María Díaz y Elena Novillo.**
 #### ¿Qué se ha hecho hasta ahora?

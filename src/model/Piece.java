@@ -100,4 +100,9 @@ public class Piece {
 		}
 		return p;
 	}
+	
+	public void setInicio(int x, int y) {
+		pieza[x][y] = 4;
+	}
+	
 }
