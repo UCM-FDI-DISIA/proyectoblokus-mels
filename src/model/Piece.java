@@ -11,7 +11,8 @@ public class Piece {
 	private static final int RESOLUCION = 140;
 	
 	public Piece(int[][] pieza, Color color) {
-		this.pieza = pieza;
+		this.pieza = new int[Template.TAM][Template.TAM];
+		setPieza(pieza);
 		this.color = color;
 	}
 	
@@ -35,7 +36,7 @@ public class Piece {
 		BufferedImage bi = new BufferedImage(RESOLUCION, RESOLUCION, BufferedImage.TYPE_INT_RGB);
 		int celda = RESOLUCION/Template.TAM;
 		Graphics gr = bi.getGraphics();
-		gr.setColor(Color.BLACK);
+		gr.setColor(Color.WHITE);
 	    gr.fillRect(0, 0, RESOLUCION, RESOLUCION);
 		for (int i = 0; i < Template.TAM; i++) {
 			for (int j = 0; j < Template.TAM; j++) {
@@ -103,6 +104,18 @@ public class Piece {
 	
 	public void setInicio(int x, int y) {
 		pieza[x][y] = 4;
+	}
+	
+	public void setPieza(int[][] p) {
+		for (int i = 0; i < Template.TAM; i++)
+			for (int j = 0; j < Template.TAM; j++)
+				pieza[i][j] = p[i][j];
+	}
+	
+	public void delete() {
+		for (int i = 0; i < Template.TAM; i++)
+			for (int j = 0; j < Template.TAM; j++)
+				pieza[i][j] = 0;
 	}
 	
 }

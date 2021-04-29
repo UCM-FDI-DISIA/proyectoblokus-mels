@@ -1,7 +1,16 @@
 # proyectoblokus-mels
 
-<<<<<<< HEAD
-## Reunión 23 (28/04/2021)
+## Reunión 28 (29/04/2021)
+**Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
+#### ¿Qué se ha hecho hasta ahora?
+Los turnos se pasan y se eliminan las piezas colocadas de los jugadores.
+#### ¿Qué se va a hacer a partir de ahora?
+Funcionalidad completa del juego.
+Pantalla de inicio y de final.
+#### Dudas/Problemas
+No sabemos si funciona para todas las resoluciones.
+
+## Reunión 27 (28/04/2021)
 **Participantes: María Crespo, Lucía Heredero y Elena Novillo.**
 #### ¿Qué se ha hecho hasta ahora?
 Conseguir que el usuario pueda desplazar piezas al tablero.
@@ -11,8 +20,6 @@ Generar los turnos.
 #### Dudas/Problemas
 Cómo sustituir un panel por otro.
 
-## Reunión 22 (25/04/2021)
-=======
 ## Reunión 26 (27/04/2021)
 **Participantes: Estibaliz Zubimendi y Sara Cano García.**
 #### ¿Qué se ha hecho hasta ahora?

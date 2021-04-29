@@ -50,7 +50,7 @@ public class Player {
 	}
 	
 	public void deletePiece(int pos) {
-		piezas.remove(pos);
+		piezas.get(pos).delete();
 	}
 	public int numPiezas() {
 		return piezas.size();

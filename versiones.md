@@ -19,8 +19,7 @@
 20/04/2021 a las 11:45 - Maria Diaz ha hecho push, haced pull.
 22/04/2021 a las 18:20 - Elena ha hecho push, haced pull.
 25/04/2021 a las 13:45 - Elena ha hecho push, haced pull.
-<<<<<<< HEAD
-28/04/2021 a las 19:40 - Elena ha hecho push, haced pull.
-=======
 27/04/2021 a las 17:30 - Sara ha hecho push, haced pull.
->>>>>>> df1ff172d2e1a3c158c08b6ce414bf31a99908f3
+28/04/2021 a las 19:40 - Elena ha hecho push, haced pull.
+29/04/2021 a las 13:00 - Elena ha hecho push, haced pull.
+

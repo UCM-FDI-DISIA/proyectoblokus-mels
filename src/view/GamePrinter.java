@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import javax.swing.*;
 
 import model.Board;
+import model.Game;
 import model.Piece;
 import player.Player;
 
@@ -18,27 +19,23 @@ public class GamePrinter extends JFrame {
 	public static final int width = 1500;
 	public static final String nombrePestanya = "Blokus";
 	private ImageIcon boardImageBoard;
-	private Board board;
 	private BoardPrinter boardPrinter;
-	private Player player;
 	private PlayerPrinter playerPrinter;
 	private JLabel labelBoard;
 	private JPanel playerPanel;
 	private JPanel mainPanel;
 	
-	public GamePrinter(){
+	public GamePrinter(Game inicial){
 		super(nombrePestanya);
-		board = new Board();
 		boardPrinter = new BoardPrinter();
-		player = new Player(Color.GREEN);
 		playerPrinter = new PlayerPrinter();
-		initGUI();
+		initGUI(inicial);
 	}
 	
-	private void initGUI() {
+	private void initGUI(Game game) {
 		mainPanel = new JPanel();
-		playerPanel = playerPrinter.printPlayer(player);
-		boardImageBoard = new ImageIcon(boardPrinter.printBoard(board));
+		playerPanel = playerPrinter.printPlayer(game.getCurrentPlayer());
+		boardImageBoard = new ImageIcon(boardPrinter.printBoard(game.getCurrentBoard()));
 		labelBoard = new JLabel(boardImageBoard);
 		mainPanel.setBackground(Color.WHITE);
 		mainPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
@@ -57,18 +54,20 @@ public class GamePrinter extends JFrame {
 			}
 
 			public void mouseReleased(MouseEvent e) {
-				int selectedPiece = playerPrinter.getPiezaVentana(player, pointInicio.x, pointInicio.y);
-				if (selectedPiece == -1) System.out.println("No has cogido ninguna pieza, chaval");
+				int selectedPiece = playerPrinter.getPiezaVentana(game.getCurrentPlayer(), pointInicio.x, pointInicio.y);
+				if (selectedPiece == -1) JOptionPane.showMessageDialog(null, "No has seleccionado ninguna pieza");
 				else {
-					Piece piezaColoca = player.getPiece(selectedPiece);
-					Point p = boardPrinter.getCasilla(board, e.getX(), e.getY());
-					if (p == null) System.out.println("Fuerita del tablero");
+					Piece piezaColoca = game.getPiece(selectedPiece);
+					Point p = boardPrinter.getCasilla(game.getCurrentBoard(), e.getX(), e.getY());
+					if (p == null) JOptionPane.showMessageDialog(null, "Estás fuera del tablero");
 					else {
-						if (board.canAddPiece(p.x, p.y, piezaColoca, true)) {
-							board.colocarPieza(p.x, p.y, piezaColoca);
-							player.deletePiece(selectedPiece);
-							printGame();
+						if (game.canAddPiece(p.x, p.y, piezaColoca, true)) {
+							game.colocarPieza(p.x, p.y, piezaColoca);
+							game.deletePiece(selectedPiece);
+							game.pasaTurno();
+							printGame(game);
 						}
+						else JOptionPane.showMessageDialog(null, "No puedes colocar esa pieza ahí");
 					}
 				}
 			}
@@ -99,11 +98,12 @@ public class GamePrinter extends JFrame {
 //		
 //	}
 	
-	public void printGame() {
-		labelBoard.setIcon(new ImageIcon(boardPrinter.printBoard(board)));
+	public void printGame(Game game) {
+		labelBoard.setIcon(new ImageIcon(boardPrinter.printBoard(game.getCurrentBoard())));
 		mainPanel.remove(playerPanel);
-		playerPanel = playerPrinter.printPlayer(player);
+		playerPanel = playerPrinter.printPlayer(game.getCurrentPlayer());
 		mainPanel.add(playerPanel);
 		mainPanel.validate();
+		mainPanel.repaint();
 	}
 }

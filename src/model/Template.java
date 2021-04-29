@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.Color;
+
 public class Template {
 
 	public static final int TAM = 7;
@@ -273,5 +275,19 @@ public class Template {
 	
 	public static boolean esCuadrado(Piece p) {
 		return p.getPieza().equals(monomino);
+	}
+	
+	public static Color getColor(int i) {
+		switch(i) {
+		case 0: 
+			return Color.green;
+		case 1:
+			return Color.blue;
+		case 2:
+			return Color.yellow;
+		case 3:
+			return Color.red;
+		}
+		return null;
 	}
 }
