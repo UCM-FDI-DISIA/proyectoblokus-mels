@@ -59,7 +59,10 @@ public class GamePrinter extends JFrame {
 				else {
 					Piece piezaColoca = game.getPiece(selectedPiece);
 					Point p = boardPrinter.getCasilla(game.getCurrentBoard(), e.getX(), e.getY());
-					if (p == null) JOptionPane.showMessageDialog(null, "Estás fuera del tablero");
+					if (p == null) {
+						piezaColoca.deleteInicio();
+						JOptionPane.showMessageDialog(null, "Estás fuera del tablero");
+					}
 					else {
 						if (game.canAddPiece(p.x, p.y, piezaColoca, true)) {
 							game.colocarPieza(p.x, p.y, piezaColoca);
@@ -67,7 +70,10 @@ public class GamePrinter extends JFrame {
 							game.pasaTurno();
 							printGame(game);
 						}
-						else JOptionPane.showMessageDialog(null, "No puedes colocar esa pieza ahí");
+						else {
+							piezaColoca.deleteInicio();
+							JOptionPane.showMessageDialog(null, "No puedes colocar esa pieza ahí");
+						}
 					}
 				}
 			}

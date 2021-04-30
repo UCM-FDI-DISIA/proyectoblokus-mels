@@ -106,6 +106,12 @@ public class Piece {
 		pieza[x][y] = 4;
 	}
 	
+	public void deleteInicio() {
+		for (int i = 0; i < Template.TAM; i++)
+			for (int j = 0; j < Template.TAM; j++)
+				if (pieza[i][j] == 4) pieza[i][j] = 3;
+	}
+	
 	public void setPieza(int[][] p) {
 		for (int i = 0; i < Template.TAM; i++)
 			for (int j = 0; j < Template.TAM; j++)
