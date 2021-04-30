@@ -1,6 +1,36 @@
 # proyectoblokus-mels
 
-## Reunión 22 (25/04/2021)
+## Reunión 28 (29/04/2021)
+**Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
+#### ¿Qué se ha hecho hasta ahora?
+Los turnos se pasan y se eliminan las piezas colocadas de los jugadores.
+#### ¿Qué se va a hacer a partir de ahora?
+Funcionalidad completa del juego.
+Pantalla de inicio y de final.
+#### Dudas/Problemas
+No sabemos si funciona para todas las resoluciones.
+
+## Reunión 27 (28/04/2021)
+**Participantes: María Crespo, Lucía Heredero y Elena Novillo.**
+#### ¿Qué se ha hecho hasta ahora?
+Conseguir que el usuario pueda desplazar piezas al tablero.
+#### ¿Qué se va a hacer a partir de ahora?
+Eliminar las piezas del array de jugadores
+Generar los turnos.
+#### Dudas/Problemas
+Cómo sustituir un panel por otro.
+
+## Reunión 26 (27/04/2021)
+**Participantes: Estibaliz Zubimendi y Sara Cano García.**
+#### ¿Qué se ha hecho hasta ahora?
+Añadir el patrón Observer en los diagramas y actualizar la wiki.
+#### ¿Qué se va a hacer a partir de ahora?
+Diseñar el diagrama de secuancia.
+#### Dudas/Problemas
+Ninguna.
+
+## Reunión 25 (25/04/2021)
+>>>>>>> df1ff172d2e1a3c158c08b6ce414bf31a99908f3
 **Participantes: María Crespo, Lucía Heredero, María Díaz y Elena Novillo.**
 #### ¿Qué se ha hecho hasta ahora?
 Conseguido seleccionar las coordenadas de la ventana respecto al modelo.
@@ -10,7 +40,7 @@ Generar los turnos.
 #### Dudas/Problemas
 Transparencia de las piezas a la hora de moverlas.
 
-## Reunión 21 (22/04/2021)
+## Reunión 24 (22/04/2021)
 **Participantes: María Crespo, Lucía Heredero, María Díaz y Elena Novillo.**
 #### ¿Qué se ha hecho hasta ahora?
 Modificar la estructura de la pantalla para que las piezas se encuentren bien colocadas.
@@ -21,7 +51,16 @@ Identificar la posición en la que se encuentran las piezas/casillas.
 #### Dudas/Problemas
 Ninguno.
 
-## Reunión 20 (22/04/2021)
+## Reunión 23 (22/04/2021)
+**Participantes: Estibaliz Zubimendi y Sara Cano García.**
+#### ¿Qué se ha hecho hasta ahora?
+Modificar la wiki.
+#### ¿Qué se va a hacer a partir de ahora?
+Implementar el patrón Observer en los diagramas.
+#### Dudas/Problemas
+Cómo implementar el patrón Observer en los diagramas.
+
+## Reunión 22 (22/04/2021)
 **Participantes: Todas.**
 #### ¿Qué se ha hecho hasta ahora?
 Planificar la introducción de los patrones de diseño: Observador y MVC.
@@ -29,6 +68,24 @@ Planificar la introducción de los patrones de diseño: Observador y MVC.
 Modificar la estructura para que se ajuste a los patrones.
 #### Dudas/Problemas
 Ninguno.
+
+## Reunión 21 (21/04/2021)
+**Participantes: Estibaliz Zubimendi y Sara Cano García.**
+#### ¿Qué se ha hecho hasta ahora?
+Modificar los diagramas de clase para añadir la interfaz gráfica.
+#### ¿Qué se va a hacer a partir de ahora?
+Arreglar los diagramas.
+#### Dudas/Problemas
+Ninguna.
+
+## Reunión 20 (20/04/2021)
+**Participantes: Estibaliz Zubimendi y Sara Cano García.**
+#### ¿Qué se ha hecho hasta ahora?
+Modificar los diagramas de clase para incluir los paquetes.
+#### ¿Qué se va a hacer a partir de ahora?
+Arreglar los diagramas.
+#### Dudas/Problemas
+Ninguna.
 
 ## Reunión 19 (20/04/2021)
 **Participantes: Maria Crespo, Maria Diaz y Lucia Heredero.**

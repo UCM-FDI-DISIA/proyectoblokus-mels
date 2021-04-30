@@ -44,7 +44,7 @@ public class Mouse implements MouseListener, MouseMotionListener, MouseWheelList
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		board.addPieza(player.getPiece(pieza), posicion.x - 5, posicion.y - 5, true);
+		//board.addPieza(player.getPiece(pieza), posicion.x - 5, posicion.y - 5, true);
 		//gamePrinter.createBoardPanel();
 	}
 

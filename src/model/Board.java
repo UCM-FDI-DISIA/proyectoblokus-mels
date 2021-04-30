@@ -13,11 +13,9 @@ public class Board {
 	private static final Color COLOR_FONDO = Color.LIGHT_GRAY;
 	private static final Color COLOR_LINEA =Color.GRAY;
 	
-	private int[][] tablero; // El array bidimensional que lleva todo el contenido del tablero
 	private Color[][] aux;
 	
 	public Board() { // Inicializa el tablero como vacío
-		tablero = new int[DIMENSION][DIMENSION];
 		aux = new Color[DIMENSION][DIMENSION];
 		initTableroAux();
 	}
@@ -30,7 +28,7 @@ public class Board {
 	public void initTableroAux() {
 		for (int i = 0; i < DIMENSION; i++) {
 			for (int j = 0; j < DIMENSION; j++) {
-				aux[i][j]=Color.LIGHT_GRAY;
+				aux[i][j]= COLOR_FONDO;
 			}
 		}
 	}
@@ -41,7 +39,7 @@ public class Board {
 		
 		for (int i = 0; i < DIMENSION; i++) {
 			for (int j = 0; j < DIMENSION; j++) {
-				gr.setColor(aux[i][j]);
+				gr.setColor(aux[j][i]);
 				gr.fillRect(i * celda, j * celda, celda, celda);
 		        gr.setColor(COLOR_LINEA);
 		        gr.drawRect(i * celda, j * celda, celda, celda);
@@ -51,24 +49,24 @@ public class Board {
 	}
 
 	
-	public void addColor(int i, int j, char color) {
-		tablero[i][j] = color;
+	public void addColor(int i, int j, Color color) {
+		aux[i][j] = color;
 	}
 	
-//	public Point coordInPlane(Point p, int res) {
-//		return new Point(p.x /(res/DIMENSION), p.y/(res/DIMENSION));
-//	}
+	public boolean coordInPlane(int x, int y) {
+		return x >= 0 && x < DIMENSION && y >= 0 && y < DIMENSION;
+	}
 	
 	public boolean isEmpty(int i, int j) {
-		return tablero[i][j] == ' ';
+		return aux[i][j].equals(COLOR_FONDO);
 	}
 	
-/*	public boolean canAddPiece(int x, int y, Piece pieza, boolean primera) { // Comprobaciones para la parte de la pieza
+	public boolean canAddPiece(int x, int y, Piece pieza, boolean primera) { // Comprobaciones para la parte de la pieza
 		boolean hayEsquinas = primera;
 		for (int i = 0; i < Template.TAM; i++) {
-			int a = x + i - pieza.getXInicio() - 1;
+			int a = x + i - pieza.getXInicio();
 			for (int j = 0; j < Template.TAM; j++) {
-				int b = y + j - pieza.getYInicio() - 1;
+				int b = y + j - pieza.getYInicio();
 				if (pieza.esPieza(i, j) && (!coordInPlane(a, b) || !isEmpty(a, b))) return false;
 				if (!primera && pieza.esEsquina(i, j) && coordInPlane(a, b) && sameColor(a, b, pieza.getColor()))
 					hayEsquinas = true;
@@ -79,30 +77,31 @@ public class Board {
 		return hayEsquinas;
 	}
 	
-	public boolean sameColor(int i, int j, char color) {
-		return tablero[i][j] == color;
+	public boolean sameColor(int i, int j, Color color) {
+		return aux[i][j].equals(color);
 	}
 	
 	public void colocarPieza(int x, int y, Piece pieza) {
 		for (int i = 0; i < Template.TAM; i++) {
-			int a = x + i - pieza.getXInicio() - 1;
+			int a = x + i - pieza.getXInicio();
 			for (int j = 0; j < Template.TAM; j++) {
-				int b = y + j - pieza.getYInicio() - 1;
+				int b = y + j - pieza.getYInicio();
 				if (pieza.esPieza(i, j) || pieza.esInicio(i, j)) addColor(a, b, pieza.getColor());
 			}
 		}
-	}*/
-	
-	public void addPieza(Piece pieza, int x, int y, boolean primera) {
-		for (int i = 0; i < Template.TAM; i++) {
-			for (int j = 0; j < Template.TAM; j++) {
-				if(pieza.esInicio(i, j) || pieza.esPieza(i, j)) {
-					tablero[i+x][j+y]=pieza.getPieza()[i][j];
-					aux[i+x][j+y]=pieza.getColor();
-				}
-			}
-		}
 	}
+	
+//	public void addPieza(Piece pieza, int x, int y, boolean primera) {
+//		for (int i = 0; i < Template.TAM; i++) {
+//			for (int j = 0; j < Template.TAM; j++) {
+//				if(pieza.esInicio(i, j) || pieza.esPieza(i, j)) {
+//					tablero[i+x][j+y]=pieza.getPieza()[i][j];
+//					aux[i+x][j+y]=pieza.getColor();
+//				}
+//			}
+//		}
+//	}
+	
 	public Point getCasilla(int coordX, int coordY) {
 		int tamCelda = RESOLUCION/DIMENSION;
 		Point p = null;
@@ -119,4 +118,5 @@ public class Board {
 		}
 		return p;
 	}
+	
 }

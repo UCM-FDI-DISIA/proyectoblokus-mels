@@ -9,21 +9,17 @@ import player.Player;
 import view.GamePrinter;
 
 public class Main {
-	public static final int NUM_JUGADORES = 2;
+	public static final int NUM_JUGADORES = 4;
 	public static final int NUM_ARGS_ADD = 4;
 	
 	public static int cuentaSkip;
-	public static Board board;
-	public static Player[] players;
 	private static Scanner scanner;
 	private static int turno;
 	
 	// Metodo inicio (LLama a pintar tablero y muestra piezas), actualizar tablero, reset tablero.
 	public static void main(String[] args) {
-		board = new Board();
-		players = new Player[NUM_JUGADORES];
-		//---------------------
-		GamePrinter gamePrinter = new GamePrinter();
+		Game game = new Game(NUM_JUGADORES);
+		game.run();
 		//---------------------
 //		initJugadores();
 //		turno = 0; // Empieza el jugador rojo
@@ -86,10 +82,10 @@ public class Main {
 				+ "[a]dd: <pieza> <fila> <columna> \n";
 	}
 
-	private static void printGame() {
-		System.out.println(board);
-		System.out.println(players[turno % 2]);
-	}
+//	private static void printGame() {
+//		System.out.println(board);
+//		System.out.println(players[turno % 2]);
+//	}
 
 /*	private static void initJugadores() {
 		char[] colors = {Template.ROJO, Template.AMARILLO, Template.AZUL, Template.VERDE};

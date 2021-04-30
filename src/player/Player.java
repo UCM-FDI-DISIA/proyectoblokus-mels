@@ -50,7 +50,7 @@ public class Player {
 	}
 	
 	public void deletePiece(int pos) {
-		piezas.remove(pos);
+		piezas.get(pos).delete();
 	}
 	public int numPiezas() {
 		return piezas.size();
@@ -68,12 +68,10 @@ public class Player {
 					Piece piezaSeleccionada = piezas.get((j/tamPieza) * 5 + i/tamPieza);
 					Point casillaSeleccionada = 
 							piezaSeleccionada.getCasillaPieza(coordX - ventanaX, coordY - ventanaY);
-					System.out.println("Coords " + coordX + " " + coordY);
-					System.out.println("Coords " + (coordX - ventanaX) + " " + (coordY - ventanaY));
-					System.out.println("Casilla " + casillaSeleccionada.x + " " + casillaSeleccionada.y);
-					if (casillaSeleccionada != null && (piezaSeleccionada.esPieza(casillaSeleccionada.x, casillaSeleccionada.y)
-							|| piezaSeleccionada.esInicio(casillaSeleccionada.x, casillaSeleccionada.y)))
+					if (casillaSeleccionada != null && piezaSeleccionada.esPieza(casillaSeleccionada.x, casillaSeleccionada.y)){
 						piece = (j/tamPieza) * 5 + i/tamPieza;
+						piezaSeleccionada.setInicio(casillaSeleccionada.x, casillaSeleccionada.y);
+					}
 					break;
 				}
 			}

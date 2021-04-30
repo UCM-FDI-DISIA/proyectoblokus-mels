@@ -12,7 +12,7 @@ import player.Player;
 
 public class PlayerPrinter {
 	public JPanel printPlayer(Player p) {
-		JPanel playerPanel = new JPanel(new GridLayout(5, 5));
+		JPanel playerPanel = new JPanel(new GridLayout(0, 5));
 		playerPanel.setBackground(Color.WHITE);
 		PiecePrinter pieceP = new PiecePrinter();
 		for (int i = 0; i < p.numPiezas(); i++) {
