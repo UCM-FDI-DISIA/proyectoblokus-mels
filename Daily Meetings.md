@@ -1,5 +1,14 @@
 # proyectoblokus-mels
 
+## Reunión 29 (30/04/2021)
+**Participantes: Estibaliz Zubimendi y Sara Cano García.**
+#### ¿Qué se ha hecho hasta ahora?
+Diseñar diagramas de secuencia del inicio del juego y actualizar la wiki.
+#### ¿Qué se va a hacer a partir de ahora?
+Diseñar el diagrama de secuencia de la implementación de los observers.
+#### Dudas/Problemas
+Ninguna, pero vamos a preguntar el martes cómo hacerlo en clase.
+
 ## Reunión 28 (29/04/2021)
 **Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
 #### ¿Qué se ha hecho hasta ahora?
@@ -25,7 +34,7 @@ Cómo sustituir un panel por otro.
 #### ¿Qué se ha hecho hasta ahora?
 Añadir el patrón Observer en los diagramas y actualizar la wiki.
 #### ¿Qué se va a hacer a partir de ahora?
-Diseñar el diagrama de secuancia.
+Diseñar el diagrama de secuencia.
 #### Dudas/Problemas
 Ninguna.
 
