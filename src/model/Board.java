@@ -61,20 +61,22 @@ public class Board {
 		return aux[i][j].equals(COLOR_FONDO);
 	}
 	
-	public boolean canAddPiece(int x, int y, Piece pieza, boolean primera) { // Comprobaciones para la parte de la pieza
-		boolean hayEsquinas = primera;
+	public boolean canAddPiece(int x, int y, Piece pieza, boolean primera, Point esquina) { // Comprobaciones para la parte de la pieza
+		boolean canAdd = false;
 		for (int i = 0; i < Template.TAM; i++) {
 			int a = x + i - pieza.getXInicio();
 			for (int j = 0; j < Template.TAM; j++) {
 				int b = y + j - pieza.getYInicio();
 				if (pieza.esPieza(i, j) && (!coordInPlane(a, b) || !isEmpty(a, b))) return false;
 				if (!primera && pieza.esEsquina(i, j) && coordInPlane(a, b) && sameColor(a, b, pieza.getColor()))
-					hayEsquinas = true;
+					canAdd = true;
 				if (pieza.esLado(i, j) && coordInPlane(a, b) && sameColor(a, b, pieza.getColor()))
 					return false;
 			}
 		}
-		return hayEsquinas;
+		if(primera && principio(x, y, pieza, esquina))
+			canAdd = true;
+		return canAdd;
 	}
 	
 	public boolean sameColor(int i, int j, Color color) {
@@ -89,6 +91,21 @@ public class Board {
 				if (pieza.esPieza(i, j) || pieza.esInicio(i, j)) addColor(a, b, pieza.getColor());
 			}
 		}
+	}
+	
+	public boolean principio(int x, int y, Piece pieza, Point esquina) {
+		if(x == esquina.x && y == esquina.y) 
+			return true;
+		
+		for (int i = 0; i < Template.TAM; i++) {
+			int a = x + i - pieza.getXInicio();
+			for (int j = 0; j < Template.TAM; j++) {
+				int b = y + j - pieza.getYInicio();
+				if ((pieza.esPieza(i, j) || pieza.esInicio(i, j)) && a == esquina.x && b == esquina.y)
+					return true;
+			}
+		}
+		return false;
 	}
 	
 //	public void addPieza(Piece pieza, int x, int y, boolean primera) {

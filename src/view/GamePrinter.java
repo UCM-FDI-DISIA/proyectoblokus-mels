@@ -64,9 +64,10 @@ public class GamePrinter extends JFrame {
 						JOptionPane.showMessageDialog(null, "Estás fuera del tablero");
 					}
 					else {
-						if (game.canAddPiece(p.x, p.y, piezaColoca, true)) {
+						if (game.canAddPiece(p.x, p.y, piezaColoca)) {
 							game.colocarPieza(p.x, p.y, piezaColoca);
 							game.deletePiece(selectedPiece);
+							game.cambiarPrimerTurno();
 							game.pasaTurno();
 							printGame(game);
 						}

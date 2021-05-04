@@ -26,8 +26,8 @@ public class Game {
 		return board;
 	}
 
-	public boolean canAddPiece(int x, int y, Piece piezaColoca, boolean b) {
-		return board.canAddPiece(x, y, piezaColoca, b);
+	public boolean canAddPiece(int x, int y, Piece piezaColoca) {
+		return board.canAddPiece(x, y, piezaColoca, players[turno].getPrimerTurno(), players[turno].getEsquina());
 	}
 
 	public void colocarPieza(int x, int y, Piece piezaColoca) {
@@ -55,6 +55,10 @@ public class Game {
 
 	public void run() {
 		gamePrinter = new GamePrinter(this);
+	}
+	
+	public void cambiarPrimerTurno() {
+		players[turno].setPrimerTurno(false);
 	}
 	
 }

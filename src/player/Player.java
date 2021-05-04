@@ -12,12 +12,28 @@ public class Player {
 	private ArrayList<Piece> piezas;
 	private Color color;
 	private Piece ultima;
+	private boolean primerTurno;
+	private Point esquina;
 	
 	// Parte de piezas:
 	public Player(Color color) {
 		this.color = color;
 		piezas = new ArrayList<Piece>();
+		primerTurno = true;
+		setEsquina();
 		initPiezas();
+	}
+	
+	public boolean getPrimerTurno() {
+		return primerTurno;
+	}
+	
+	public void setPrimerTurno(boolean b) {
+		primerTurno = b;
+	}
+	
+	public Point getEsquina(){
+		return esquina;
 	}
 	
 	public void initPiezas() {
@@ -77,5 +93,16 @@ public class Player {
 			}
 		}
 		return piece;
+	}
+	
+	public void setEsquina() {
+		if(color.equals(Color.GREEN)) 
+			esquina = new Point(0 ,0);
+		else if (color.equals(Color.BLUE))
+			esquina = new Point(0, 19);
+		else if(color.equals(Color.YELLOW))
+			esquina = new Point(19, 0);
+		else
+			esquina = new Point(19, 19);
 	}
 }

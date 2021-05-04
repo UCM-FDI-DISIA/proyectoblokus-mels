@@ -1,5 +1,15 @@
 # proyectoblokus-mels
 
+## Reunión 30 (04/05/2021)
+**Participantes: María Crespo, María Díaz y Lucía Heredero.**
+#### ¿Qué se ha hecho hasta ahora?
+Que la primera pieza del jugador se coloque en una esquina preestablecida y que solo se puedan colocar piezas en diagonal
+a otra de su color.
+#### ¿Qué se va a hacer a partir de ahora?
+Terminar la jugabilidad del juego.
+#### Dudas/Problemas
+Ninguno.
+
 ## Reunión 29 (30/04/2021)
 **Participantes: Estibaliz Zubimendi y Sara Cano García.**
 #### ¿Qué se ha hecho hasta ahora?
