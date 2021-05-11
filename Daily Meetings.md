@@ -1,5 +1,14 @@
 # proyectoblokus-mels
 
+## Reunión 31 (11/05/2021)
+**Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
+#### ¿Qué se ha hecho hasta ahora?
+Girar las piezas y poner el fondo de la pieza transparente.
+#### ¿Qué se va a hacer a partir de ahora?
+Terminar la jugabilidad del juego.
+#### Dudas/Problemas
+Como hacer que se vea bien el arrastre.
+
 ## Reunión 30 (04/05/2021)
 **Participantes: María Crespo, María Díaz y Lucía Heredero.**
 #### ¿Qué se ha hecho hasta ahora?
