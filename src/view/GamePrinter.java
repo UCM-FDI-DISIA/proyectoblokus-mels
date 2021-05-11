@@ -1,8 +1,11 @@
 package view;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 import javax.swing.*;
 
@@ -24,6 +27,9 @@ public class GamePrinter extends JFrame {
 	private JLabel labelBoard;
 	private JPanel playerPanel;
 	private JPanel mainPanel;
+	private Piece piezaColoca = null;
+	private Point pointInicio = null;
+	private int selectedPiece;
 	
 	public GamePrinter(Game inicial){
 		super(nombrePestanya);
@@ -41,12 +47,16 @@ public class GamePrinter extends JFrame {
 		mainPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 		mainPanel.add(labelBoard);
 		mainPanel.add(playerPanel);
+		mainPanel.setPreferredSize(new Dimension(1450, 800));
 		
 		this.addMouseListener(new MouseListener() {
-			Point pointInicio = null;
+			
 			
 			public void mouseClicked(MouseEvent e) {
 				pointInicio = new Point(e.getX(), e.getY());
+				selectedPiece = playerPrinter.getPiezaVentana(game.getCurrentPlayer(), pointInicio.x, pointInicio.y);
+				if (selectedPiece == -1) JOptionPane.showMessageDialog(null, "No has seleccionado ninguna pieza");
+				else piezaColoca = game.getPiece(selectedPiece);
 			}
 
 			public void mousePressed(MouseEvent e) {
@@ -54,10 +64,9 @@ public class GamePrinter extends JFrame {
 			}
 
 			public void mouseReleased(MouseEvent e) {
-				int selectedPiece = playerPrinter.getPiezaVentana(game.getCurrentPlayer(), pointInicio.x, pointInicio.y);
-				if (selectedPiece == -1) JOptionPane.showMessageDialog(null, "No has seleccionado ninguna pieza");
-				else {
-					Piece piezaColoca = game.getPiece(selectedPiece);
+				
+				
+				if(piezaColoca != null) {
 					Point p = boardPrinter.getCasilla(game.getCurrentBoard(), e.getX(), e.getY());
 					if (p == null) {
 						piezaColoca.deleteInicio();
@@ -70,6 +79,7 @@ public class GamePrinter extends JFrame {
 							game.cambiarPrimerTurno();
 							game.pasaTurno();
 							printGame(game);
+							piezaColoca = null;
 						}
 						else {
 							piezaColoca.deleteInicio();
@@ -77,6 +87,7 @@ public class GamePrinter extends JFrame {
 						}
 					}
 				}
+				
 			}
 
 			public void mouseEntered(MouseEvent e) {
@@ -90,6 +101,54 @@ public class GamePrinter extends JFrame {
 			}
 			
 		});
+		this.addMouseMotionListener(new MouseMotionListener() {
+
+			@Override
+			public void mouseDragged(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				/*
+				 * PiecePrinter p = new PiecePrinter(); Graphics g = getGraphics();
+				 * 
+				 * g.drawImage(p.printPiece(piezaColoca), arg0.getX() -
+				 * game.getCurrentPlayer().getCordsPieza(pointInicio.x, pointInicio.y).x,
+				 * arg0.getY() - game.getCurrentPlayer().getCordsPieza(pointInicio.x,
+				 * pointInicio.y).y, 140, 140, null); repaint();
+				 */
+			}
+
+			@Override
+			public void mouseMoved(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
+		this.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				if(piezaColoca != null && (arg0.getKeyChar() == 'g' || arg0.getKeyChar() == 'G')) {
+					game.getCurrentPlayer().girar(selectedPiece);
+					printGame(game);
+				}
+			}
+
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
 		this.add(mainPanel);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

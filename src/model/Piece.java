@@ -1,9 +1,13 @@
 package model;
 
+import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
+
+import view.TransparentTransformation;
 
 public class Piece {	
 	private int[][] pieza;
@@ -35,8 +39,7 @@ public class Piece {
 	public BufferedImage drawPiece(Color c) {
 		BufferedImage bi = new BufferedImage(RESOLUCION, RESOLUCION, BufferedImage.TYPE_INT_RGB);
 		int celda = RESOLUCION/Template.TAM;
-		Graphics gr = bi.getGraphics();
-		gr.setColor(Color.WHITE);
+		Graphics2D gr = (Graphics2D) bi.getGraphics();
 	    gr.fillRect(0, 0, RESOLUCION, RESOLUCION);
 		for (int i = 0; i < Template.TAM; i++) {
 			for (int j = 0; j < Template.TAM; j++) {
@@ -48,6 +51,11 @@ public class Piece {
 				}
 			}
 		}
+
+		TransparentTransformation transparent = new TransparentTransformation(bi);
+		bi = transparent.makeColorTransparent(Color.WHITE);
+
+		gr.setColor(Color.WHITE);
 		return bi;
 		
 	}
@@ -124,4 +132,27 @@ public class Piece {
 				pieza[i][j] = 0;
 	}
 	
+	
+	public void giro() {
+		int [][] aux = new int[Template.TAM][Template.TAM];
+		for (int i = 0; i < Template.TAM; i++) 
+			for (int j = 0; j < Template.TAM; j++) 
+				aux[j][Template.TAM - i - 1] = pieza[i][j];
+		pieza = aux;
+	}
+	
+	public Point getCordsPieza(int coordX, int coordY) {
+		int tamCelda = RESOLUCION/Template.TAM;
+		Point p = null;
+		for (int i = 0; i < RESOLUCION; i = tamCelda + i) {
+			for (int j = 0; j < RESOLUCION; j = tamCelda + j) {
+				if (coordX >= i && coordY >= j && 
+					coordX <= i + tamCelda && coordY <= j + tamCelda) {
+					p = new Point(j, i);
+					break;
+				}
+			}
+		}
+		return p;
+	}
 }
