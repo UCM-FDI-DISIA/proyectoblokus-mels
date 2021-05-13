@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 import javax.tools.Diagnostic;
 
 public class Board {
-	private static final int DIMENSION = 20;
+	public static final int DIMENSION = 20;
 	private static final int RESOLUCION= 600;
 	private static final Color COLOR_FONDO = Color.LIGHT_GRAY;
 	private static final Color COLOR_LINEA =Color.GRAY;
@@ -67,7 +67,7 @@ public class Board {
 			int a = x + i - pieza.getXInicio();
 			for (int j = 0; j < Template.TAM; j++) {
 				int b = y + j - pieza.getYInicio();
-				if (pieza.esPieza(i, j) && (!coordInPlane(a, b) || !isEmpty(a, b))) return false;
+				if ((pieza.esPieza(i, j) || pieza.esInicio(i, j)) && (!coordInPlane(a, b) || !isEmpty(a, b))) return false;
 				if (!primera && pieza.esEsquina(i, j) && coordInPlane(a, b) && sameColor(a, b, pieza.getColor()))
 					canAdd = true;
 				if (pieza.esLado(i, j) && coordInPlane(a, b) && sameColor(a, b, pieza.getColor()))

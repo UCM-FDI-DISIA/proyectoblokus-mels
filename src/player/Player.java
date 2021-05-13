@@ -14,6 +14,7 @@ public class Player {
 	private Piece ultima;
 	private boolean primerTurno;
 	private Point esquina;
+	private boolean puedeColocar;
 	
 	// Parte de piezas:
 	public Player(Color color) {
@@ -22,6 +23,7 @@ public class Player {
 		primerTurno = true;
 		setEsquina();
 		initPiezas();
+		puedeColocar = true;
 	}
 	
 	public boolean getPrimerTurno() {
@@ -110,21 +112,12 @@ public class Player {
 		piezas.get(p).giro();
 	}
 	
-	public Point getCordsPieza(int coordX, int coordY) {
-		int tamPieza = Piece.getRESOLUCION();
-		for (int i = 0; i < 5 * tamPieza; i += tamPieza) {
-			int ventanaX = 608 + i;
-			for (int j = 0; j < 5 * tamPieza && (j/tamPieza) * 5 + i/tamPieza <= 20; j += tamPieza) {
-				int ventanaY = 30 + j;
-				if (coordX >= ventanaX && coordY >= ventanaY && 
-					coordX <= ventanaX + tamPieza && coordY <= ventanaY + tamPieza) {
-					Piece piezaSeleccionada = piezas.get((j/tamPieza) * 5 + i/tamPieza);
-					return piezaSeleccionada.getCordsPieza(coordX - ventanaX, coordY - ventanaY);
-					
-				}
-			}
-		}
-		return null;
+	public void setPuedeColocar(boolean b) {
+		puedeColocar = b;
+	}
+	
+	public boolean getPuedeColocar() {
+		return puedeColocar;
 	}
 	
 }

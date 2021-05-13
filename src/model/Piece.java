@@ -141,18 +141,34 @@ public class Piece {
 		pieza = aux;
 	}
 	
-	public Point getCordsPieza(int coordX, int coordY) {
+	public Point getCoordsInicio() {
 		int tamCelda = RESOLUCION/Template.TAM;
 		Point p = null;
 		for (int i = 0; i < RESOLUCION; i = tamCelda + i) {
 			for (int j = 0; j < RESOLUCION; j = tamCelda + j) {
-				if (coordX >= i && coordY >= j && 
-					coordX <= i + tamCelda && coordY <= j + tamCelda) {
-					p = new Point(j, i);
+				if (esInicio(i/tamCelda, j/tamCelda)) {
+					p = new Point(j + 10, i + 10);
 					break;
 				}
 			}
 		}
 		return p;
+	}
+	
+	public Point getPrimeraCasilla() {
+		for (int i = 0; i < Template.TAM; i++)
+			for (int j = 0; j < Template.TAM; j++)
+				if (pieza[i][j] == 3)
+					return new Point(i, j);
+		return null;
+	}
+	
+	public int countInicios(){
+		int inicio = 0;
+		for (int i = 0; i < Template.TAM; i++)
+			for (int j = 0; j < Template.TAM; j++)
+				if (pieza[i][j] == 4) 
+					inicio++;
+		return inicio;
 	}
 }

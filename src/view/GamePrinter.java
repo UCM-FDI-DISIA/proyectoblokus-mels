@@ -9,10 +9,8 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.*;
 
-import model.Board;
 import model.Game;
 import model.Piece;
-import player.Player;
 
 public class GamePrinter extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -78,7 +76,7 @@ public class GamePrinter extends JFrame {
 							game.deletePiece(selectedPiece);
 							game.cambiarPrimerTurno();
 							game.pasaTurno();
-							printGame(game);
+							finishGame(game);
 							piezaColoca = null;
 						}
 						else {
@@ -105,15 +103,10 @@ public class GamePrinter extends JFrame {
 
 			@Override
 			public void mouseDragged(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				/*
-				 * PiecePrinter p = new PiecePrinter(); Graphics g = getGraphics();
-				 * 
-				 * g.drawImage(p.printPiece(piezaColoca), arg0.getX() -
-				 * game.getCurrentPlayer().getCordsPieza(pointInicio.x, pointInicio.y).x,
-				 * arg0.getY() - game.getCurrentPlayer().getCordsPieza(pointInicio.x,
-				 * pointInicio.y).y, 140, 140, null); repaint();
-				 */
+				repaint();
+				PiecePrinter p = new PiecePrinter(); Graphics g = getGraphics();
+			    g.drawImage(p.printPiece(piezaColoca), arg0.getX() - piezaColoca.getCoordsInicio().x,
+			    arg0.getY() - piezaColoca.getCoordsInicio().y, 140, 140, null); 
 			}
 
 			@Override
@@ -171,5 +164,24 @@ public class GamePrinter extends JFrame {
 		mainPanel.add(playerPanel);
 		mainPanel.validate();
 		mainPanel.repaint();
+	}
+	
+	public void finishGame(Game game) {
+		int i;
+		for (i = 0; i < game.getNumJugadores(); i++) {
+			if (game.puedeColocarCurrentPlayer()) {
+				printGame(game);
+				break;
+			}
+			else {
+				game.noPuedeColocar();
+				printGame(game);
+				JOptionPane.showMessageDialog(null, "El jugador " + game.getCurrentPlayer() + " no puede colocar.");
+				game.pasaTurno();
+			}
+		}
+		if (i == game.getNumJugadores())
+			System.exit(0);
+			
 	}
 }

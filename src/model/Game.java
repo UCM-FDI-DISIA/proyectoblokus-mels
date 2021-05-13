@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.Point;
+
 import player.Player;
 import view.GamePrinter;
 
@@ -8,7 +10,6 @@ public class Game {
 	private int numJugadores;
 	private Board board;
 	private Player[] players;
-	private GamePrinter gamePrinter;
 	
 	public Game(int numJugadores){
 		turno = 0;
@@ -54,11 +55,45 @@ public class Game {
 	}
 
 	public void run() {
-		gamePrinter = new GamePrinter(this);
+		new GamePrinter(this);
 	}
 	
 	public void cambiarPrimerTurno() {
 		players[turno].setPrimerTurno(false);
 	}
 	
+	public boolean puedeColocarCurrentPlayer() {
+		if (players[turno].getPrimerTurno())
+			return true;
+		if (players[turno].getPuedeColocar()) {
+			for(int p = 0; p < Template.NUM_PIEZAS; p++) {
+				for (int g = 0; g < 4; g++) {
+					Piece pieza = new Piece(players[turno].getPiece(p).getPieza(), players[turno].getColor());
+					pieza.giro(); // Giramos la pieza
+					Point punto  = pieza.getPrimeraCasilla();
+					if(punto != null) {
+						System.out.println("La pieza empieza en el punto " + "(" + punto.x + ", " + punto.y + ")");
+						pieza.setInicio(punto.x, punto.y);
+						System.out.println("Tengo incios: " + pieza.countInicios());
+						// Comprobamos para todas las posiciones del tablero
+						for (int i = 0; i < Board.DIMENSION; i++)
+							for (int j = 0; j < Board.DIMENSION; j++)
+								if (board.canAddPiece(i, j, pieza, false, null)) {
+									System.out.println("La pieza " + p + " se puede colocar en (" + i + ", " + j + ")");
+									return true;
+								}
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	public void noPuedeColocar() {
+		players[turno].setPuedeColocar(false);
+	}
+	
+	public int getNumJugadores() {
+		return numJugadores;
+	}
 }

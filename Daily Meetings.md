@@ -1,5 +1,14 @@
 # proyectoblokus-mels
 
+## Reunión 32 (13/05/2021)
+**Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
+#### ¿Qué se ha hecho hasta ahora?
+Acabe el juego. No funciona del todo.
+#### ¿Qué se va a hacer a partir de ahora?
+Terminar la jugabilidad del juego.
+#### Dudas/Problemas
+Arreglar las comprobaciones.
+
 ## Reunión 31 (11/05/2021)
 **Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
 #### ¿Qué se ha hecho hasta ahora?
