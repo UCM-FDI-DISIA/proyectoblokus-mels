@@ -45,10 +45,17 @@ public class Player {
 	
 	public int calculaPuntos() {
 		int numPuntos = 0;
-		for(Piece p: piezas) numPuntos -= p.calculaPuntos();
-		if (todasColocadas(numPuntos) && Template.esCuadrado(ultima)) numPuntos = Template.PUNTOS_CUADRADO;
-		else if (todasColocadas(numPuntos)) numPuntos = Template.PUNTOS_GANADOR;
+		for(Piece p: piezas) 
+			numPuntos -= p.calculaPuntos();
+		if (todasColocadas(numPuntos) && Template.esCuadrado(ultima)) 
+			numPuntos = Template.PUNTOS_CUADRADO;
+		else if (todasColocadas(numPuntos)) 
+			numPuntos = Template.PUNTOS_GANADOR;
 		return numPuntos;
+	}
+	
+	public void setUltima(Piece p) {
+		ultima = new Piece(p.getPieza(), p.getColor());
 	}
 	
 	public boolean todasColocadas(int numPuntos) {

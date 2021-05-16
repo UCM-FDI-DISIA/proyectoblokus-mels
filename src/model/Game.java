@@ -10,19 +10,21 @@ public class Game {
 	private int numJugadores;
 	private Board board;
 	private Player[] players;
+	private static final int DEF_NUMJUGADORES = 2;
 	
-	public Game(int numJugadores){
+	public Game(){
 		turno = 0;
 		board = new Board();
-		this.numJugadores = numJugadores;
-		players = new Player[numJugadores];
-		initJugadores();
+		setNumJugadores(DEF_NUMJUGADORES);
+		
 	}
 	
 	public Player getCurrentPlayer() {
 		return players[turno];
 	}
-	
+	public int getTurno() {
+		return turno;
+	}
 	public Board getCurrentBoard() {
 		return board;
 	}
@@ -67,14 +69,14 @@ public class Game {
 			return true;
 		if (players[turno].getPuedeColocar()) {
 			for(int p = 0; p < Template.NUM_PIEZAS; p++) {
+				Piece pieza = new Piece(players[turno].getPiece(p).getPieza(), players[turno].getColor());
 				for (int g = 0; g < 4; g++) {
-					Piece pieza = new Piece(players[turno].getPiece(p).getPieza(), players[turno].getColor());
 					pieza.giro(); // Giramos la pieza
 					Point punto  = pieza.getPrimeraCasilla();
 					if(punto != null) {
 						System.out.println("La pieza empieza en el punto " + "(" + punto.x + ", " + punto.y + ")");
 						pieza.setInicio(punto.x, punto.y);
-						System.out.println("Tengo incios: " + pieza.countInicios());
+						System.out.println(pieza.toString());
 						// Comprobamos para todas las posiciones del tablero
 						for (int i = 0; i < Board.DIMENSION; i++)
 							for (int j = 0; j < Board.DIMENSION; j++)
@@ -95,5 +97,18 @@ public class Game {
 	
 	public int getNumJugadores() {
 		return numJugadores;
+	}
+	public void setNumJugadores(int num) {
+		numJugadores = num;
+		players = new Player[numJugadores];
+		initJugadores();
+	}
+	public String getPuntos() {
+		String txt = "";
+		for (int i = 0; i < numJugadores; i++) {
+			txt+="- Jugador "+(i+1)+" ha obtenido "+ players[i].calculaPuntos()+" puntos";
+			txt+="\n";
+		}
+		return txt;
 	}
 }

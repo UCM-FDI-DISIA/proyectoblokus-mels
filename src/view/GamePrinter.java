@@ -69,10 +69,12 @@ public class GamePrinter extends JFrame {
 					if (p == null) {
 						piezaColoca.deleteInicio();
 						JOptionPane.showMessageDialog(null, "Estás fuera del tablero");
+						
 					}
 					else {
 						if (game.canAddPiece(p.x, p.y, piezaColoca)) {
 							game.colocarPieza(p.x, p.y, piezaColoca);
+							game.getCurrentPlayer().setUltima(piezaColoca);
 							game.deletePiece(selectedPiece);
 							game.cambiarPrimerTurno();
 							game.pasaTurno();
@@ -176,12 +178,15 @@ public class GamePrinter extends JFrame {
 			else {
 				game.noPuedeColocar();
 				printGame(game);
-				JOptionPane.showMessageDialog(null, "El jugador " + game.getCurrentPlayer() + " no puede colocar.");
+				JOptionPane.showMessageDialog(null, "El jugador " + (game.getTurno()+1)+ " no puede colocar.");
 				game.pasaTurno();
 			}
 		}
-		if (i == game.getNumJugadores())
+		if (i == game.getNumJugadores()) {
+			JOptionPane.showMessageDialog(null, game.getPuntos());
 			System.exit(0);
+		}
+		
 			
 	}
 }

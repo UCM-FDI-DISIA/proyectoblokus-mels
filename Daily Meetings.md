@@ -1,5 +1,14 @@
 # proyectoblokus-mels
 
+## Reunión 33 (16/05/2021)
+**Participantes: María Crespo, María Díaz y Elena Novillo.**
+#### ¿Qué se ha hecho hasta ahora?
+Pantalla seleccion,arreglar que acabe el juego y puntuaciones.
+#### ¿Qué se va a hacer a partir de ahora?
+Implementar praton observer.
+#### Dudas/Problemas
+Colocar la pantalla de seleccion en el centro.
+
 ## Reunión 32 (13/05/2021)
 **Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
 #### ¿Qué se ha hecho hasta ahora?

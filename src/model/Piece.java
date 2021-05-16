@@ -171,4 +171,16 @@ public class Piece {
 					inicio++;
 		return inicio;
 	}
+	
+	@Override
+	public String toString() {
+		String p="";
+		for (int i = 0; i < Template.TAM; i++) {
+			for (int j = 0; j <Template.TAM; j++) {
+				p+=pieza[i][j]+" ";
+			}
+			p+="\n";
+		}
+		return p;
+	}
 }
