@@ -29,15 +29,28 @@ public class SeleccionWindow extends JFrame{
 	private void initGUI() {
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-		JButton maquina = initBoton(Color.GRAY, "Jugador vs Maquina");
-		maquina.addActionListener(new ActionListener() {
+		JButton maquinaFacil = initBoton(Color.GREEN, "Jugador vs Maquina : Facil");
+		maquinaFacil.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				game.setMaquina(1);
 				game.setNumJugadores(2);
 				setVisible(false);
 			}
 		});
+		
+		JButton maquinaDificil = initBoton(Color.RED, "Jugador vs Maquina : Dificil");
+		maquinaDificil.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				game.setMaquina(2);
+				game.setNumJugadores(2);
+				setVisible(false);
+			}
+		});
+		
 		JButton dos = initBoton(Color.ORANGE, "2 Jugadores");
 		dos.addActionListener(new ActionListener() {
 			
@@ -67,7 +80,8 @@ public class SeleccionWindow extends JFrame{
 				
 			}
 		});
-		panel.add(maquina);
+		panel.add(maquinaFacil);
+		panel.add(maquinaDificil);
 		panel.add(dos);
 		panel.add(tres);
 		panel.add(cuatro);

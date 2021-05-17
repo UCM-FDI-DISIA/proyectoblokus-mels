@@ -151,14 +151,6 @@ public class GamePrinter extends JFrame {
 	}
 
 	
-//	
-//	// Seria para volver a llamar al tablero y que se actualice
-//	public void createBoardPanel() {
-//		boardImageBoard.setImage(board.drawBoard());
-//		labelBoard.repaint();
-//		
-//	}
-	
 	public void printGame(Game game) {
 		labelBoard.setIcon(new ImageIcon(boardPrinter.printBoard(game.getCurrentBoard())));
 		mainPanel.remove(playerPanel);

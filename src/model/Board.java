@@ -108,17 +108,6 @@ public class Board {
 		return false;
 	}
 	
-//	public void addPieza(Piece pieza, int x, int y, boolean primera) {
-//		for (int i = 0; i < Template.TAM; i++) {
-//			for (int j = 0; j < Template.TAM; j++) {
-//				if(pieza.esInicio(i, j) || pieza.esPieza(i, j)) {
-//					tablero[i+x][j+y]=pieza.getPieza()[i][j];
-//					aux[i+x][j+y]=pieza.getColor();
-//				}
-//			}
-//		}
-//	}
-	
 	public Point getCasilla(int coordX, int coordY) {
 		int tamCelda = RESOLUCION/DIMENSION;
 		Point p = null;

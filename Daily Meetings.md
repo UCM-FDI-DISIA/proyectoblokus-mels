@@ -1,5 +1,14 @@
 # proyectoblokus-mels
 
+## Reunión 35 (17/05/2021)
+**Participantes: María Crespo, María Díaz y Lucía Heredero.**
+#### ¿Qué se ha hecho hasta ahora?
+Implementar IA.
+#### ¿Qué se va a hacer a partir de ahora?
+Observers.
+#### Dudas/Problemas
+No hemos podido implementar el patrón Observers. Hemos implementado la IA.
+
 ## Reunión 34 (16/05/2021)
 **Participantes: Estibaliz Zubimendi y Sara Cano García.**
 #### ¿Qué se ha hecho hasta ahora?

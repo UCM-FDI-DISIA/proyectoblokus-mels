@@ -15,15 +15,22 @@ public class Player {
 	private boolean primerTurno;
 	private Point esquina;
 	private boolean puedeColocar;
+	private int maquina;
 	
 	// Parte de piezas:
-	public Player(Color color) {
+	//Maquina: 0->jugador normal, 1->fcail, 2->dificil
+	public Player(Color color, int maquina) {
 		this.color = color;
 		piezas = new ArrayList<Piece>();
 		primerTurno = true;
 		setEsquina();
 		initPiezas();
 		puedeColocar = true;
+		this.maquina = maquina;
+	}
+	
+	public int getMaquina() {
+		return maquina;
 	}
 	
 	public boolean getPrimerTurno() {
