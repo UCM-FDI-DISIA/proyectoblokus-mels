@@ -1,5 +1,14 @@
 # proyectoblokus-mels
 
+## Reunión 36 (19/05/2021)
+**Participantes: Estibaliz Zubimendi y Sara Cano García.**
+#### ¿Qué se ha hecho hasta ahora?
+Diseñar diagramas de secuencia de la lógica interna del juego y actualizar wiki.
+#### ¿Qué se va a hacer a partir de ahora?
+Completar wiki.
+#### Dudas/Problemas
+Ninguna.
+
 ## Reunión 35 (17/05/2021)
 **Participantes: María Crespo, María Díaz y Lucía Heredero.**
 #### ¿Qué se ha hecho hasta ahora?
