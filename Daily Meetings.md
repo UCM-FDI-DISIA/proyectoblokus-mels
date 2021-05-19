@@ -1,5 +1,14 @@
 # proyectoblokus-mels
 
+## Reunión 37 (19/05/2021)
+**Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
+#### ¿Qué se ha hecho hasta ahora?
+Implementar patrón estrategias y corregir múltiples errores.
+#### ¿Qué se va a hacer a partir de ahora?
+Modificar la implementación para que se ajuste al patrón observer y crear clase máquina que herede de Player.
+#### Dudas/Problemas
+Ninguna.
+
 ## Reunión 36 (19/05/2021)
 **Participantes: Estibaliz Zubimendi y Sara Cano García.**
 #### ¿Qué se ha hecho hasta ahora?

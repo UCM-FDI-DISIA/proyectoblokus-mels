@@ -5,6 +5,8 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+
+import estrategias.Strategy;
 import model.Piece;
 import model.Template;
 
@@ -15,11 +17,11 @@ public class Player {
 	private boolean primerTurno;
 	private Point esquina;
 	private boolean puedeColocar;
-	private int maquina;
+	private Strategy maquina;
 	
 	// Parte de piezas:
 	//Maquina: 0->jugador normal, 1->fcail, 2->dificil
-	public Player(Color color, int maquina) {
+	public Player(Color color, Strategy maquina) {
 		this.color = color;
 		piezas = new ArrayList<Piece>();
 		primerTurno = true;
@@ -29,7 +31,7 @@ public class Player {
 		this.maquina = maquina;
 	}
 	
-	public int getMaquina() {
+	public Strategy getMaquina() {
 		return maquina;
 	}
 	
@@ -54,6 +56,7 @@ public class Player {
 		int numPuntos = 0;
 		for(Piece p: piezas) 
 			numPuntos -= p.calculaPuntos();
+		ultima.deleteInicio();
 		if (todasColocadas(numPuntos) && Template.esCuadrado(ultima)) 
 			numPuntos = Template.PUNTOS_CUADRADO;
 		else if (todasColocadas(numPuntos)) 

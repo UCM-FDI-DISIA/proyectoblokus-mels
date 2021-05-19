@@ -30,3 +30,4 @@
 16/05/2021 a las 17:30 - Sara ha hecho push, haced pull.
 17/05/2021 a las 19:00 - Lucía ha hecho push, haced pull.
 19/05/2021 a las 18:00 - Esti ha hecho push de unos maravilloso diagramas, disfrutad chicas c:
+19/05/2021 a las 19:15 - Lucía ha hecho push, haced pull.

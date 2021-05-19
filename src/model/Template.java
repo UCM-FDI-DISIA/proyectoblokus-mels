@@ -274,7 +274,11 @@ public class Template {
 			pentomino7, pentomino8, pentomino9, pentomino10, pentomino11, pentomino12};
 	
 	public static boolean esCuadrado(Piece p) {
-		return p.getPieza().equals(monomino);
+		for(int i = 0; i < TAM; i++)
+			for(int j = 0; j < TAM; j++)
+				if(p.getPieza()[i][j] != monomino[i][j])
+					return false;
+		return true;
 	}
 	
 	public static Color getColor(int i) {
