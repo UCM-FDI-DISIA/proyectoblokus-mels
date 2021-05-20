@@ -1,11 +1,14 @@
-package model;
+package control;
 
 import java.awt.Point;
 
-import javax.swing.JOptionPane;
-
 import estrategias.Dificil;
 import estrategias.Facil;
+import model.BlokusObserver;
+import model.Board;
+import model.Piece;
+import model.Template;
+import player.Maquina;
 import player.Player;
 import view.GamePrinter;
 
@@ -15,7 +18,7 @@ public class Game {
 	private Board board;
 	private Player[] players;
 	private int maquina;
-	private GamePrinter printer;
+	private BlokusObserver o;
 	private static final int DEF_NUMJUGADORES = 2;
 	
 	public Game(){
@@ -45,31 +48,43 @@ public class Game {
 
 	public void colocarPieza(int x, int y, Piece piezaColoca) {
 		board.colocarPieza(x, y, piezaColoca);
+		o.onBoardChange();
 	}
 
 	public void deletePiece(int selectedPiece) {
 		players[turno].deletePiece(selectedPiece);
+		o.onPlayerChange();
 	}
 
 	public Piece getPiece(int selectedPiece) {
 		return players[turno].getPiece(selectedPiece);
 	}
 	
+	public void addObserver(BlokusObserver o){
+		this.o = o;
+	}
+	
 	public void pasaTurno() {
 		turno++;
 		if (turno == numJugadores) turno = 0;
-		if(getCurrentPlayer().getMaquina() != null) {
-			getCurrentPlayer().getMaquina().addPiece();
+		if(getCurrentPlayer().esMaquina()) {
+			getCurrentPlayer().addPiece();
 		}
+		o.onPlayerChange();
+	}
+	
+	public void girarPieza(int p) {
+		players[turno].girar(p);
+		o.onPlayerChange();
 	}
 	
 	public void initJugadores() {
 		for (int i = 0; i < numJugadores; i++) {
-			players[i] = new Player(Template.getColor(i), null);
+			players[i] = new Player(Template.getColor(i));
 			if(maquina == 1 && i == 1)
-				players[i] = new Player(Template.getColor(i), new Facil(this));
+				players[i] = new Maquina(Template.getColor(i), new Facil(this));
 			else if(maquina == 2 && i == 1)
-				players[i] = new Player(Template.getColor(i), new Dificil(this));
+				players[i] = new Maquina(Template.getColor(i), new Dificil(this));
 		}
 	}
 	
@@ -78,7 +93,7 @@ public class Game {
 	}
 	
 	public void run() {
-		printer = new GamePrinter(this);
+		o = new GamePrinter(this);
 	}
 	
 	public boolean puedeColocarCurrentPlayer() {
@@ -129,7 +144,11 @@ public class Game {
 		colocarPieza(x, y, players[turno].getPiece(pos));
 		getCurrentPlayer().setUltima(players[turno].getPiece(pos));
 		deletePiece(pos);
-		printer.finishGame(this);
 		pasaTurno();
+		o.onFinishGame();
+	}
+
+	public boolean estaEliminado() {
+		return !players[turno].getPuedeColocar();
 	}
 }

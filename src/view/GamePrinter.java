@@ -9,10 +9,11 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.*;
 
-import model.Game;
+import control.Game;
+import model.BlokusObserver;
 import model.Piece;
 
-public class GamePrinter extends JFrame {
+public class GamePrinter extends JFrame implements BlokusObserver{
 	private static final long serialVersionUID = 1L;
 	public static final int X_init = 0;
 	public static final int Y_init = 0;
@@ -28,15 +29,17 @@ public class GamePrinter extends JFrame {
 	private Piece piezaColoca = null;
 	private Point pointInicio = null;
 	private int selectedPiece;
+	private Game game;
 	
 	public GamePrinter(Game inicial){
 		super(nombrePestanya);
 		boardPrinter = new BoardPrinter();
 		playerPrinter = new PlayerPrinter();
-		initGUI(inicial);
+		game = inicial;
+		initGUI();
 	}
 	
-	private void initGUI(Game game) {
+	private void initGUI() {
 		mainPanel = new JPanel();
 		playerPanel = playerPrinter.printPlayer(game.getCurrentPlayer());
 		boardImageBoard = new ImageIcon(boardPrinter.printBoard(game.getCurrentBoard()));
@@ -78,7 +81,7 @@ public class GamePrinter extends JFrame {
 							game.deletePiece(selectedPiece);
 							game.cambiarPrimerTurno();
 							game.pasaTurno();
-							finishGame(game);
+							onFinishGame();
 							piezaColoca = null;
 						}
 						else {
@@ -125,8 +128,7 @@ public class GamePrinter extends JFrame {
 			public void keyPressed(KeyEvent arg0) {
 				// TODO Auto-generated method stub
 				if(piezaColoca != null && (arg0.getKeyChar() == 'g' || arg0.getKeyChar() == 'G')) {
-					game.getCurrentPlayer().girar(selectedPiece);
-					printGame(game);
+					game.girarPieza(selectedPiece);
 				}
 			}
 
@@ -151,7 +153,7 @@ public class GamePrinter extends JFrame {
 	}
 
 	
-	public void printGame(Game game) {
+	public void printGame() {
 		labelBoard.setIcon(new ImageIcon(boardPrinter.printBoard(game.getCurrentBoard())));
 		mainPanel.remove(playerPanel);
 		playerPanel = playerPrinter.printPlayer(game.getCurrentPlayer());
@@ -159,17 +161,36 @@ public class GamePrinter extends JFrame {
 		mainPanel.validate();
 		mainPanel.repaint();
 	}
-	
-	public void finishGame(Game game) {
+
+	@Override
+	public void onBoardChange() {
+		// TODO Auto-generated method stub
+		labelBoard.setIcon(new ImageIcon(boardPrinter.printBoard(game.getCurrentBoard())));
+	}
+
+	@Override
+	public void onPlayerChange() {
+		// TODO Auto-generated method stub
+		mainPanel.remove(playerPanel);
+		playerPanel = playerPrinter.printPlayer(game.getCurrentPlayer());
+		mainPanel.add(playerPanel);
+		mainPanel.validate();
+		mainPanel.repaint();
+	}
+
+	@Override
+	public void onFinishGame() {
+		// TODO Auto-generated method stub
 		int i;
 		for (i = 0; i < game.getNumJugadores(); i++) {
 			if (game.puedeColocarCurrentPlayer()) {
-				printGame(game);
 				break;
+			}
+			else if(game.estaEliminado()) {
+				game.pasaTurno();
 			}
 			else {
 				game.noPuedeColocar();
-				printGame(game);
 				JOptionPane.showMessageDialog(null, "El jugador " + (game.getTurno()+1)+ " no puede colocar.");
 				game.pasaTurno();
 			}
@@ -178,7 +199,5 @@ public class GamePrinter extends JFrame {
 			JOptionPane.showMessageDialog(null, game.getPuntos());
 			System.exit(0);
 		}
-		
-			
 	}
 }

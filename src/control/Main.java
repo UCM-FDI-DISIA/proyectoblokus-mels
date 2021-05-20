@@ -1,8 +1,5 @@
 package control;
 
-import model.*;
-
-
 import view.SeleccionWindow;
 
 public class Main {
@@ -13,7 +10,7 @@ public class Main {
 	public static void main(String[] args) throws InterruptedException  {
 		Game game = new Game();
 		new SeleccionWindow(game);
-		Thread.sleep(3500);
+		Thread.sleep(3000);
 		game.run();
 	}
 	

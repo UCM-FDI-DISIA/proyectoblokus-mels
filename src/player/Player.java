@@ -17,22 +17,16 @@ public class Player {
 	private boolean primerTurno;
 	private Point esquina;
 	private boolean puedeColocar;
-	private Strategy maquina;
 	
 	// Parte de piezas:
 	//Maquina: 0->jugador normal, 1->fcail, 2->dificil
-	public Player(Color color, Strategy maquina) {
+	public Player(Color color) {
 		this.color = color;
 		piezas = new ArrayList<Piece>();
 		primerTurno = true;
 		setEsquina();
 		initPiezas();
 		puedeColocar = true;
-		this.maquina = maquina;
-	}
-	
-	public Strategy getMaquina() {
-		return maquina;
 	}
 	
 	public boolean getPrimerTurno() {
@@ -135,6 +129,14 @@ public class Player {
 	
 	public boolean getPuedeColocar() {
 		return puedeColocar;
+	}
+	
+	public boolean esMaquina() {
+		return false;
+	}
+	
+	public void addPiece() {
+		
 	}
 	
 }

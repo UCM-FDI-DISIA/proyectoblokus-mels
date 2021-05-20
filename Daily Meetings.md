@@ -1,5 +1,14 @@
 # proyectoblokus-mels
 
+## Reunión 38 (20/05/2021)
+**Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
+#### ¿Qué se ha hecho hasta ahora?
+Modificar la implementación para que se ajuste al patrón observer y crear clase máquina que herede de Player.
+#### ¿Qué se va a hacer a partir de ahora?
+Refactorizar codigo y que se ajuste el programa a pantallas de 14".
+#### Dudas/Problemas
+Por que no funciona en pantallas de 14".
+
 ## Reunión 37 (19/05/2021)
 **Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
 #### ¿Qué se ha hecho hasta ahora?
