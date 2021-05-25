@@ -37,6 +37,7 @@ public class Dificil implements Strategy{
 									game.colocarMaquina(i, j, p);
 									return true;
 								}
+						game.getCurrentPlayer().getPiece(p).deleteInicio();
 					}
 				}
 			}

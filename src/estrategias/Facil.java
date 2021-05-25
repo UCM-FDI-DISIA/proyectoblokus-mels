@@ -32,11 +32,12 @@ public class Facil implements Strategy{
 						game.getCurrentPlayer().getPiece(p).setInicio(punto.x, punto.y);
 						// Comprobamos para todas las posiciones del tablero
 						for (int i = 0; i < Board.DIMENSION; i++)
-							for (int j = 0; j < Board.DIMENSION; j++)
+							for (int j = 0; j < Board.DIMENSION; j++) 
 								if (game.getCurrentBoard().canAddPiece(i, j, game.getCurrentPlayer().getPiece(p), false, null)) {
 									game.colocarMaquina(i, j, p);
 									return true;
 								}
+						game.getCurrentPlayer().getPiece(p).deleteInicio();
 					}
 				}
 			}
