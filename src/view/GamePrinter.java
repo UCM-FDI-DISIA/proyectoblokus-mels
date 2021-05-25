@@ -65,7 +65,6 @@ public class GamePrinter extends JFrame implements BlokusObserver{
 
 			public void mouseReleased(MouseEvent e) {
 				
-				
 				if(piezaColoca != null) {
 					Point p = boardPrinter.getCasilla(game.getCurrentBoard(), e.getX(), e.getY());
 					if (p == null) {
@@ -92,57 +91,37 @@ public class GamePrinter extends JFrame implements BlokusObserver{
 				
 			}
 
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
+			public void mouseEntered(MouseEvent e) {}
 
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
+			public void mouseExited(MouseEvent e) {}
 			
 		});
 		this.addMouseMotionListener(new MouseMotionListener() {
 
-			@Override
 			public void mouseDragged(MouseEvent arg0) {
 				repaint();
 				PiecePrinter p = new PiecePrinter(); 
 				Graphics g = getGraphics();
 			    g.drawImage(p.printPiece(piezaColoca), arg0.getX() - piezaColoca.getCoordsInicio().x,
-			    arg0.getY() - piezaColoca.getCoordsInicio().y, 140, 140, null); 
+			    arg0.getY() - piezaColoca.getCoordsInicio().y, Piece.getRESOLUCION(), Piece.getRESOLUCION(), null); 
 			}
 
-			@Override
-			public void mouseMoved(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
+			public void mouseMoved(MouseEvent arg0) {}
 			
 		});
 		
 		this.addKeyListener(new KeyListener() {
 
-			@Override
+			
 			public void keyPressed(KeyEvent arg0) {
-				// TODO Auto-generated method stub
 				if(piezaColoca != null && (arg0.getKeyChar() == 'g' || arg0.getKeyChar() == 'G')) {
 					game.girarPieza(selectedPiece);
 				}
 			}
 
-			@Override
-			public void keyReleased(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void keyTyped(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
+			public void keyReleased(KeyEvent arg0) {}
+			
+			public void keyTyped(KeyEvent arg0) {}
 			
 		});
 		
@@ -164,13 +143,11 @@ public class GamePrinter extends JFrame implements BlokusObserver{
 
 	@Override
 	public void onBoardChange() {
-		// TODO Auto-generated method stub
 		labelBoard.setIcon(new ImageIcon(boardPrinter.printBoard(game.getCurrentBoard())));
 	}
 
 	@Override
 	public void onPlayerChange() {
-		// TODO Auto-generated method stub
 		mainPanel.remove(playerPanel);
 		playerPanel = playerPrinter.printPlayer(game.getCurrentPlayer());
 		mainPanel.add(playerPanel);
@@ -180,7 +157,6 @@ public class GamePrinter extends JFrame implements BlokusObserver{
 
 	@Override
 	public void onFinishGame() {
-		// TODO Auto-generated method stub
 		int i;
 		for (i = 0; i < game.getNumJugadores(); i++) {
 			if (game.puedeColocarCurrentPlayer()) {

@@ -1,17 +1,17 @@
 package control;
 
-import view.SeleccionWindow;
+import hebras.HebraInicio;
+import hebras.HebraPrincipal;
 
 public class Main {
 	public static int numJugadores;
 	
-	
-	// Metodo inicio (LLama a pintar tablero y muestra piezas), actualizar tablero, reset tablero.
 	public static void main(String[] args) throws InterruptedException  {
 		Game game = new Game();
-		new SeleccionWindow(game);
-		Thread.sleep(3000);
-		game.run();
+		HebraPrincipal principal = new HebraPrincipal(game);
+		principal.start();
+		principal.wait();
+		HebraInicio inicio = new HebraInicio(game, principal);
+		inicio.start();
 	}
-	
 }

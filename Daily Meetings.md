@@ -7,7 +7,7 @@ Hacer que funcione en pantallas de 14" y solucionar problemas con el jugador má
 #### ¿Qué se va a hacer a partir de ahora?
 Refactorizar codigo.
 #### Dudas/Problemas
-Ninguna.
+No sabemos como hacer que dos hebras se esperen.
 
 ## Reunión 38 (20/05/2021)
 **Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**

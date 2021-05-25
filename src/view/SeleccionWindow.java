@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import control.Game;
+import hebras.HebraPrincipal;
 
 public class SeleccionWindow extends JFrame{
 
@@ -19,10 +20,12 @@ public class SeleccionWindow extends JFrame{
 	 */
 	private static final long serialVersionUID = 1L;
 	private Game game;
+	private HebraPrincipal hebra;
 	
-	public SeleccionWindow(Game game) {
+	public SeleccionWindow(Game game, HebraPrincipal h) {
 		super("Seleccion Jugadores");
 		this.game = game;
+		hebra = h;
 		initGUI();
 	}
 
@@ -37,6 +40,7 @@ public class SeleccionWindow extends JFrame{
 				game.setMaquina(1);
 				game.setNumJugadores(2);
 				setVisible(false);
+				hebra.notify();
 			}
 		});
 		
@@ -48,6 +52,7 @@ public class SeleccionWindow extends JFrame{
 				game.setMaquina(2);
 				game.setNumJugadores(2);
 				setVisible(false);
+				hebra.notify();
 			}
 		});
 		
@@ -58,6 +63,7 @@ public class SeleccionWindow extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				game.setNumJugadores(2);
 				setVisible(false);
+				hebra.notify();
 			}
 		});
 		JButton tres = initBoton(Color.CYAN, "3 Jugadores");
@@ -67,6 +73,7 @@ public class SeleccionWindow extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				game.setNumJugadores(3);
 				setVisible(false);
+				hebra.notify();
 				
 			}
 		});
@@ -77,7 +84,7 @@ public class SeleccionWindow extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				game.setNumJugadores(4);
 				setVisible(false);
-				
+				hebra.notify();
 			}
 		});
 		panel.add(maquinaFacil);
