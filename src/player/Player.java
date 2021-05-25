@@ -89,7 +89,7 @@ public class Player {
 		int piece = -1;
 		int tamPieza = Piece.getRESOLUCION();
 		for (int i = 0; i < 5 * tamPieza; i += tamPieza) {
-			int ventanaX = 608 + i;
+			int ventanaX = 507 + i;
 			for (int j = 0; j < 5 * tamPieza && (j/tamPieza) * 5 + i/tamPieza <= 20; j += tamPieza) {
 				int ventanaY = 30 + j;
 				if (coordX >= ventanaX && coordY >= ventanaY && 

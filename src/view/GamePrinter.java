@@ -48,7 +48,6 @@ public class GamePrinter extends JFrame implements BlokusObserver{
 		mainPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 		mainPanel.add(labelBoard);
 		mainPanel.add(playerPanel);
-		mainPanel.setPreferredSize(new Dimension(1450, 800));
 		
 		this.addMouseListener(new MouseListener() {
 			
@@ -109,7 +108,8 @@ public class GamePrinter extends JFrame implements BlokusObserver{
 			@Override
 			public void mouseDragged(MouseEvent arg0) {
 				repaint();
-				PiecePrinter p = new PiecePrinter(); Graphics g = getGraphics();
+				PiecePrinter p = new PiecePrinter(); 
+				Graphics g = getGraphics();
 			    g.drawImage(p.printPiece(piezaColoca), arg0.getX() - piezaColoca.getCoordsInicio().x,
 			    arg0.getY() - piezaColoca.getCoordsInicio().y, 140, 140, null); 
 			}

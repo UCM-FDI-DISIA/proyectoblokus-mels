@@ -9,7 +9,7 @@ import javax.tools.Diagnostic;
 
 public class Board {
 	public static final int DIMENSION = 20;
-	private static final int RESOLUCION= 600;
+	private static final int RESOLUCION= 500;
 	private static final Color COLOR_FONDO = Color.LIGHT_GRAY;
 	private static final Color COLOR_LINEA =Color.GRAY;
 	
@@ -114,7 +114,7 @@ public class Board {
 		for (int i = 0; i < RESOLUCION; i = tamCelda + i) {
 			int ventanaX = i;
 			for (int j = 0; j < RESOLUCION; j = tamCelda + j) {
-				int ventanaY = 80 + j;
+				int ventanaY = 130 + j;
 				if (coordX >= ventanaX && coordY >= ventanaY && 
 					coordX <= ventanaX + tamCelda && coordY <= ventanaY + tamCelda) {
 					p = new Point(j / tamCelda, i / tamCelda);

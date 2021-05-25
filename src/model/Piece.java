@@ -1,8 +1,6 @@
 package model;
 
-import java.awt.AlphaComposite;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
@@ -147,7 +145,7 @@ public class Piece {
 		for (int i = 0; i < RESOLUCION; i = tamCelda + i) {
 			for (int j = 0; j < RESOLUCION; j = tamCelda + j) {
 				if (esInicio(i/tamCelda, j/tamCelda)) {
-					p = new Point(j + 10, i + 10);
+					p = new Point(j + (tamCelda / 2), i + (tamCelda / 2));
 					break;
 				}
 			}

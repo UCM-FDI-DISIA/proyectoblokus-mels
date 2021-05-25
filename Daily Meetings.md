@@ -1,5 +1,14 @@
 # proyectoblokus-mels
 
+## Reunión 39 (25/05/2021)
+**Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
+#### ¿Qué se ha hecho hasta ahora?
+Hacer que funcione en pantallas de 14" y solucionar problemas con el jugador máquina.
+#### ¿Qué se va a hacer a partir de ahora?
+Refactorizar codigo.
+#### Dudas/Problemas
+Ninguna.
+
 ## Reunión 38 (20/05/2021)
 **Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
 #### ¿Qué se ha hecho hasta ahora?
