@@ -41,8 +41,8 @@ public class GamePrinter extends JFrame implements BlokusObserver{
 	
 	private void initGUI() {
 		mainPanel = new JPanel();
-		playerPanel = playerPrinter.printPlayer(game.getCurrentPlayer());
-		boardImageBoard = new ImageIcon(boardPrinter.printBoard(game.getCurrentBoard()));
+		playerPanel = playerPrinter.dibujarPiezasJugador(game.getJugadorActual());
+		boardImageBoard = new ImageIcon(boardPrinter.dibujarTablero(game.getTableroActual()));
 		labelBoard = new JLabel(boardImageBoard);
 		mainPanel.setBackground(Color.WHITE);
 		mainPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
@@ -51,11 +51,11 @@ public class GamePrinter extends JFrame implements BlokusObserver{
 		
 		this.addMouseListener(new MouseListener() {
 			
-			
 			public void mouseClicked(MouseEvent e) {
 				pointInicio = new Point(e.getX(), e.getY());
-				selectedPiece = playerPrinter.getPiezaVentana(game.getCurrentPlayer(), pointInicio.x, pointInicio.y);
-				if (selectedPiece == -1) JOptionPane.showMessageDialog(null, "No has seleccionado ninguna pieza");
+				selectedPiece = playerPrinter.getPiezaVentana(game.getJugadorActual(), pointInicio.x, pointInicio.y);
+				if (selectedPiece == -1) 
+					JOptionPane.showMessageDialog(null, "No has seleccionado ninguna pieza");
 				else piezaColoca = game.getPiece(selectedPiece);
 			}
 
@@ -66,24 +66,24 @@ public class GamePrinter extends JFrame implements BlokusObserver{
 			public void mouseReleased(MouseEvent e) {
 				
 				if(piezaColoca != null) {
-					Point p = boardPrinter.getCasilla(game.getCurrentBoard(), e.getX(), e.getY());
+					Point p = boardPrinter.getCasilla(game.getTableroActual(), e.getX(), e.getY());
 					if (p == null) {
-						piezaColoca.deleteInicio();
+						piezaColoca.eliminarInicio();
 						JOptionPane.showMessageDialog(null, "Estás fuera del tablero");
 						
 					}
 					else {
-						if (game.canAddPiece(p.x, p.y, piezaColoca)) {
+						if (game.sePuedeAnyadir(p.x, p.y, piezaColoca)) {
 							game.colocarPieza(p.x, p.y, piezaColoca);
-							game.getCurrentPlayer().setUltima(piezaColoca);
-							game.deletePiece(selectedPiece);
+							game.getJugadorActual().setUltima(piezaColoca);
+							game.eliminarPieza(selectedPiece);
 							game.cambiarPrimerTurno();
 							game.pasaTurno();
-							onFinishGame();
+							finJuego();
 							piezaColoca = null;
 						}
 						else {
-							piezaColoca.deleteInicio();
+							piezaColoca.eliminarInicio();
 							JOptionPane.showMessageDialog(null, "No puedes colocar esa pieza ahí");
 						}
 					}
@@ -102,7 +102,7 @@ public class GamePrinter extends JFrame implements BlokusObserver{
 				repaint();
 				PiecePrinter p = new PiecePrinter(); 
 				Graphics g = getGraphics();
-			    g.drawImage(p.printPiece(piezaColoca), arg0.getX() - piezaColoca.getCoordsInicio().x,
+			    g.drawImage(p.dibujarPieza(piezaColoca), arg0.getX() - piezaColoca.getCoordsInicio().x,
 			    arg0.getY() - piezaColoca.getCoordsInicio().y, Piece.getRESOLUCION(), Piece.getRESOLUCION(), null); 
 			}
 
@@ -111,7 +111,6 @@ public class GamePrinter extends JFrame implements BlokusObserver{
 		});
 		
 		this.addKeyListener(new KeyListener() {
-
 			
 			public void keyPressed(KeyEvent arg0) {
 				if(piezaColoca != null && (arg0.getKeyChar() == 'g' || arg0.getKeyChar() == 'G')) {
@@ -131,35 +130,25 @@ public class GamePrinter extends JFrame implements BlokusObserver{
 		this.pack();
 	}
 
-	
-	public void printGame() {
-		labelBoard.setIcon(new ImageIcon(boardPrinter.printBoard(game.getCurrentBoard())));
+	@Override
+	public void cambioTablero() {
+		labelBoard.setIcon(new ImageIcon(boardPrinter.dibujarTablero(game.getTableroActual())));
+	}
+
+	@Override
+	public void cambioJugador() {
 		mainPanel.remove(playerPanel);
-		playerPanel = playerPrinter.printPlayer(game.getCurrentPlayer());
+		playerPanel = playerPrinter.dibujarPiezasJugador(game.getJugadorActual());
 		mainPanel.add(playerPanel);
 		mainPanel.validate();
 		mainPanel.repaint();
 	}
 
 	@Override
-	public void onBoardChange() {
-		labelBoard.setIcon(new ImageIcon(boardPrinter.printBoard(game.getCurrentBoard())));
-	}
-
-	@Override
-	public void onPlayerChange() {
-		mainPanel.remove(playerPanel);
-		playerPanel = playerPrinter.printPlayer(game.getCurrentPlayer());
-		mainPanel.add(playerPanel);
-		mainPanel.validate();
-		mainPanel.repaint();
-	}
-
-	@Override
-	public void onFinishGame() {
+	public void finJuego() {
 		int i;
 		for (i = 0; i < game.getNumJugadores(); i++) {
-			if (game.puedeColocarCurrentPlayer()) {
+			if (game.puedeColocarJugadorActual()) {
 				break;
 			}
 			else if(game.estaEliminado()) {
@@ -167,7 +156,7 @@ public class GamePrinter extends JFrame implements BlokusObserver{
 			}
 			else {
 				game.noPuedeColocar();
-				JOptionPane.showMessageDialog(null, "El jugador " + (game.getTurno()+1)+ " no puede colocar.");
+				JOptionPane.showMessageDialog(null, "El jugador " + (game.getTurno() + 1)+ " no puede colocar.");
 				game.pasaTurno();
 			}
 		}

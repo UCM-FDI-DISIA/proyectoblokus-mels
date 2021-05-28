@@ -1,5 +1,5 @@
 package estrategias;
 
 public interface Strategy {
-	public boolean addPiece();
+	public boolean anyadirPieza();
 }

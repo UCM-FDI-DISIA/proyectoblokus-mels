@@ -2,6 +2,7 @@ package view;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,28 +12,22 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import control.Game;
-import hebras.HebraPrincipal;
 
 public class SeleccionWindow extends JFrame{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Game game;
-	private HebraPrincipal hebra;
 	
-	public SeleccionWindow(Game game, HebraPrincipal h) {
+	public SeleccionWindow(Game game) {
 		super("Seleccion Jugadores");
 		this.game = game;
-		hebra = h;
 		initGUI();
 	}
 
 	private void initGUI() {
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-		JButton maquinaFacil = initBoton(Color.GREEN, "Jugador vs Maquina : Facil");
+		JButton maquinaFacil = inicializaBoton(Color.GREEN, "Jugador vs Maquina : Facil");
 		maquinaFacil.addActionListener(new ActionListener() {
 			
 			@Override
@@ -40,11 +35,10 @@ public class SeleccionWindow extends JFrame{
 				game.setMaquina(1);
 				game.setNumJugadores(2);
 				setVisible(false);
-				hebra.notify();
 			}
 		});
 		
-		JButton maquinaDificil = initBoton(Color.RED, "Jugador vs Maquina : Dificil");
+		JButton maquinaDificil = inicializaBoton(Color.RED, "Jugador vs Maquina : Dificil");
 		maquinaDificil.addActionListener(new ActionListener() {
 			
 			@Override
@@ -52,39 +46,35 @@ public class SeleccionWindow extends JFrame{
 				game.setMaquina(2);
 				game.setNumJugadores(2);
 				setVisible(false);
-				hebra.notify();
 			}
 		});
 		
-		JButton dos = initBoton(Color.ORANGE, "2 Jugadores");
+		JButton dos = inicializaBoton(Color.ORANGE, "2 Jugadores");
 		dos.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				game.setNumJugadores(2);
 				setVisible(false);
-				hebra.notify();
 			}
 		});
-		JButton tres = initBoton(Color.CYAN, "3 Jugadores");
+		JButton tres = inicializaBoton(Color.CYAN, "3 Jugadores");
 		tres.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				game.setNumJugadores(3);
 				setVisible(false);
-				hebra.notify();
 				
 			}
 		});
-		JButton cuatro = initBoton(Color.PINK, "4 Jugadores");
+		JButton cuatro = inicializaBoton(Color.PINK, "4 Jugadores");
 		cuatro.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				game.setNumJugadores(4);
 				setVisible(false);
-				hebra.notify();
 			}
 		});
 		panel.add(maquinaFacil);
@@ -95,9 +85,10 @@ public class SeleccionWindow extends JFrame{
 		add(panel);
 		pack();
 		setVisible(true);
-		
+		setLocation((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 2 - 125, 
+				(int) Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2 - 100);
 	}
-	private JButton initBoton(Color color, String txt) {
+	private JButton inicializaBoton(Color color, String txt) {
 		JButton boton = new JButton(txt);
 		boton.setBackground(color);
 		boton.setPreferredSize(new Dimension(250,40));

@@ -1,5 +1,14 @@
 # proyectoblokus-mels
 
+## Reunión 40(28/05/2021)
+**Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
+#### ¿Qué se ha hecho hasta ahora?
+Refactorizar codigo.
+#### ¿Qué se va a hacer a partir de ahora?
+
+#### Dudas/Problemas
+
+
 ## Reunión 39 (25/05/2021)
 **Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
 #### ¿Qué se ha hecho hasta ahora?

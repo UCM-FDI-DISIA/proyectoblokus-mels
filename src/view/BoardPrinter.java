@@ -7,8 +7,8 @@ import model.Board;
 
 public class BoardPrinter {
 	
-	public BufferedImage printBoard(Board b) {
-		return b.drawBoard();
+	public BufferedImage dibujarTablero(Board b) {
+		return b.dibujarTablero();
 	}
 	
 	public Point getCasilla(Board board, int coordX, int coordY) {

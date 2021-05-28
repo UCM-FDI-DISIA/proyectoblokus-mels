@@ -16,9 +16,10 @@ public class Maquina extends Player{
 	public boolean esMaquina() {
 		return true;
 	}
-	
-	public void addPiece() {
-		maquina.addPiece();
+
+	public void anyadirPieza() {
+		// TODO Auto-generated method stub
+		maquina.anyadirPieza();
 	}
 	
 }

@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import model.Piece;
 
 public class PiecePrinter {
-	public BufferedImage printPiece(Piece p) {
-		return p.drawPiece(p.getColor());
+	public BufferedImage dibujarPieza(Piece p) {
+		return p.dibujarPieza(p.getColor());
 	}
 }

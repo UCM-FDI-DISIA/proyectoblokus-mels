@@ -1,12 +1,8 @@
 package player;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Point;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-
-import estrategias.Strategy;
 import model.Piece;
 import model.Template;
 
@@ -18,14 +14,14 @@ public class Player {
 	private Point esquina;
 	private boolean puedeColocar;
 	
-	// Parte de piezas:
-	//Maquina: 0->jugador normal, 1->fcail, 2->dificil
+	//Parte de piezas:
+	//Maquina: 0->jugador normal, 1->facil, 2->dificil
 	public Player(Color color) {
 		this.color = color;
 		piezas = new ArrayList<Piece>();
 		primerTurno = true;
 		setEsquina();
-		initPiezas();
+		inicializarPiezas();
 		puedeColocar = true;
 	}
 	
@@ -41,16 +37,11 @@ public class Player {
 		return esquina;
 	}
 	
-	public void initPiezas() {
-		for (int i = 0; i < Template.NUM_PIEZAS; i++)
-			piezas.add(new Piece(Template.plantilla[i], color));
-	}
-	
 	public int calculaPuntos() {
 		int numPuntos = 0;
 		for(Piece p: piezas) 
 			numPuntos -= p.calculaPuntos();
-		ultima.deleteInicio();
+		ultima.eliminarInicio();
 		if (todasColocadas(numPuntos) && Template.esCuadrado(ultima)) 
 			numPuntos = Template.PUNTOS_CUADRADO;
 		else if (todasColocadas(numPuntos)) 
@@ -66,7 +57,7 @@ public class Player {
 		return numPuntos == 0;
 	}
 	
-	public boolean canSelectPiece(int posPieza) {
+	public boolean sePuedeSeleccionarPieza(int posPieza) {
 		return posPieza >= 0 && posPieza < piezas.size();
 	}
 	
@@ -78,8 +69,8 @@ public class Player {
 		return color;
 	}
 	
-	public void deletePiece(int pos) {
-		piezas.get(pos).delete();
+	public void eliminarPieza(int pos) {
+		piezas.get(pos).eliminar();
 	}
 	public int numPiezas() {
 		return piezas.size();
@@ -92,12 +83,11 @@ public class Player {
 			int ventanaX = 507 + i;
 			for (int j = 0; j < 5 * tamPieza && (j/tamPieza) * 5 + i/tamPieza <= 20; j += tamPieza) {
 				int ventanaY = 30 + j;
-				if (coordX >= ventanaX && coordY >= ventanaY && 
-					coordX <= ventanaX + tamPieza && coordY <= ventanaY + tamPieza) {
+				if (dentroPiezas(ventanaX, ventanaY, coordX, coordY, tamPieza)) {
 					Piece piezaSeleccionada = piezas.get((j/tamPieza) * 5 + i/tamPieza);
 					Point casillaSeleccionada = 
 							piezaSeleccionada.getCasillaPieza(coordX - ventanaX, coordY - ventanaY);
-					if (casillaSeleccionada != null && piezaSeleccionada.esPieza(casillaSeleccionada.x, casillaSeleccionada.y)){
+					if (tocandoPieza(casillaSeleccionada, piezaSeleccionada)){
 						piece = (j/tamPieza) * 5 + i/tamPieza;
 						piezaSeleccionada.setInicio(casillaSeleccionada.x, casillaSeleccionada.y);
 					}
@@ -108,19 +98,8 @@ public class Player {
 		return piece;
 	}
 	
-	public void setEsquina() {
-		if(color.equals(Color.GREEN)) 
-			esquina = new Point(0 ,0);
-		else if (color.equals(Color.BLUE))
-			esquina = new Point(0, 19);
-		else if(color.equals(Color.YELLOW))
-			esquina = new Point(19, 0);
-		else
-			esquina = new Point(19, 19);
-	}
-	
 	public void girar(int p) {
-		piezas.get(p).giro();
+		piezas.get(p).girar();
 	}
 	
 	public void setPuedeColocar(boolean b) {
@@ -135,8 +114,32 @@ public class Player {
 		return false;
 	}
 	
-	public void addPiece() {
-		
+	private void inicializarPiezas() {
+		for (int i = 0; i < Template.NUM_PIEZAS; i++)
+			piezas.add(new Piece(Template.plantilla[i], color));
 	}
 	
+	private void setEsquina() {
+		if(color.equals(Color.GREEN)) 
+			esquina = new Point(0 ,0);
+		else if (color.equals(Color.BLUE))
+			esquina = new Point(0, 19);
+		else if(color.equals(Color.YELLOW))
+			esquina = new Point(19, 0);
+		else
+			esquina = new Point(19, 19);
+	}
+	
+	private boolean dentroPiezas(int ventanaX, int ventanaY, int coordX, int coordY, int tamPieza) {
+		return coordX >= ventanaX && coordY >= ventanaY && 
+					coordX <= ventanaX + tamPieza && coordY <= ventanaY + tamPieza;
+	}
+	
+	private boolean tocandoPieza(Point casillaSeleccionada, Piece piezaSeleccionada) {
+		return casillaSeleccionada != null && piezaSeleccionada.esPieza(casillaSeleccionada.x, casillaSeleccionada.y);
+	}
+	
+	public void anyadirPieza() {
+		
+	}
 }

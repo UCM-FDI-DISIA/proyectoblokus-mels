@@ -32,28 +32,30 @@ public class Game {
 		maquina = b;
 	}
 	
-	public Player getCurrentPlayer() {
+	public Player getJugadorActual() {
 		return players[turno];
 	}
+	
 	public int getTurno() {
 		return turno;
 	}
-	public Board getCurrentBoard() {
+	
+	public Board getTableroActual() {
 		return board;
 	}
 
-	public boolean canAddPiece(int x, int y, Piece piezaColoca) {
-		return board.canAddPiece(x, y, piezaColoca, players[turno].getPrimerTurno(), players[turno].getEsquina());
+	public boolean sePuedeAnyadir(int x, int y, Piece piezaColoca) {
+		return board.sePuedeAnyadirPieza(x, y, piezaColoca, players[turno].getPrimerTurno(), players[turno].getEsquina());
 	}
 
 	public void colocarPieza(int x, int y, Piece piezaColoca) {
 		board.colocarPieza(x, y, piezaColoca);
-		o.onBoardChange();
+		o.cambioTablero();
 	}
 
-	public void deletePiece(int selectedPiece) {
-		players[turno].deletePiece(selectedPiece);
-		o.onPlayerChange();
+	public void eliminarPieza(int selectedPiece) {
+		players[turno].eliminarPieza(selectedPiece);
+		o.cambioJugador();
 	}
 
 	public Piece getPiece(int selectedPiece) {
@@ -67,25 +69,15 @@ public class Game {
 	public void pasaTurno() {
 		turno++;
 		if (turno == numJugadores) turno = 0;
-		if(getCurrentPlayer().esMaquina()) {
-			getCurrentPlayer().addPiece();
+		if(getJugadorActual().esMaquina()) {
+			getJugadorActual().anyadirPieza();
 		}
-		o.onPlayerChange();
+		o.cambioJugador();
 	}
 	
 	public void girarPieza(int p) {
 		players[turno].girar(p);
-		o.onPlayerChange();
-	}
-	
-	public void initJugadores() {
-		for (int i = 0; i < numJugadores; i++) {
-			players[i] = new Player(Template.getColor(i));
-			if(maquina == 1 && i == 1)
-				players[i] = new Maquina(Template.getColor(i), new Facil(this));
-			else if(maquina == 2 && i == 1)
-				players[i] = new Maquina(Template.getColor(i), new Dificil(this));
-		}
+		o.cambioJugador();
 	}
 	
 	public void cambiarPrimerTurno() {
@@ -96,21 +88,21 @@ public class Game {
 		o = new GamePrinter(this);
 	}
 	
-	public boolean puedeColocarCurrentPlayer() {
+	public boolean puedeColocarJugadorActual() {
 		if (players[turno].getPrimerTurno())
 			return true;
 		if (players[turno].getPuedeColocar()) {
 			for(int p = 0; p < Template.NUM_PIEZAS; p++) {
 				Piece pieza = new Piece(players[turno].getPiece(p).getPieza(), players[turno].getColor());
 				for (int g = 0; g < 4; g++) {
-					pieza.giro(); // Giramos la pieza
+					pieza.girar(); // Giramos la pieza
 					Point punto  = pieza.getPrimeraCasilla();
 					if(punto != null) {
 						pieza.setInicio(punto.x, punto.y);
 						// Comprobamos para todas las posiciones del tablero
 						for (int i = 0; i < Board.DIMENSION; i++)
 							for (int j = 0; j < Board.DIMENSION; j++)
-								if (board.canAddPiece(i, j, pieza, false, null))
+								if (board.sePuedeAnyadirPieza(i, j, pieza, false, null))
 									return true;
 					}
 				}
@@ -126,11 +118,13 @@ public class Game {
 	public int getNumJugadores() {
 		return numJugadores;
 	}
+	
 	public void setNumJugadores(int num) {
 		numJugadores = num;
 		players = new Player[numJugadores];
-		initJugadores();
+		inicializarJugadores();
 	}
+	
 	public String getPuntos() {
 		String txt = "";
 		for (int i = 0; i < numJugadores; i++) {
@@ -142,13 +136,23 @@ public class Game {
 	
 	public void colocarMaquina(int x, int y, int pos) {
 		colocarPieza(x, y, players[turno].getPiece(pos));
-		getCurrentPlayer().setUltima(players[turno].getPiece(pos));
-		deletePiece(pos);
+		getJugadorActual().setUltima(players[turno].getPiece(pos));
+		eliminarPieza(pos);
 		pasaTurno();
-		o.onFinishGame();
+		o.finJuego();
 	}
 
 	public boolean estaEliminado() {
 		return !players[turno].getPuedeColocar();
+	}
+	
+	private void inicializarJugadores() {
+		for (int i = 0; i < numJugadores; i++) {
+			players[i] = new Player(Template.getColor(i));
+			if(maquina == 1 && i == 1)
+				players[i] = new Maquina(Template.getColor(i), new Facil(this));
+			else if(maquina == 2 && i == 1)
+				players[i] = new Maquina(Template.getColor(i), new Dificil(this));
+		}
 	}
 }

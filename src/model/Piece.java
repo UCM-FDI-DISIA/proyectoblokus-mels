@@ -34,17 +34,17 @@ public class Piece {
 		return num;		
 	}
 	
-	public BufferedImage drawPiece(Color c) {
+	public BufferedImage dibujarPieza(Color c) {
 		BufferedImage bi = new BufferedImage(RESOLUCION, RESOLUCION, BufferedImage.TYPE_INT_RGB);
 		int celda = RESOLUCION/Template.TAM;
 		Graphics2D gr = (Graphics2D) bi.getGraphics();
 	    gr.fillRect(0, 0, RESOLUCION, RESOLUCION);
 		for (int i = 0; i < Template.TAM; i++) {
 			for (int j = 0; j < Template.TAM; j++) {
-				if(pieza[i][j] == Template.PIEZA || pieza[i][j] == Template.INICIO) {
+				if(esPieza(i, j) || esInicio(i, j)) {
 					gr.setColor(c);
 					gr.fillRect(j * celda, i * celda, celda, celda);
-			        gr.setColor(color.BLACK);
+			        gr.setColor(Color.BLACK);
 			        gr.drawRect(j * celda, i * celda, celda, celda);
 				}
 			}
@@ -57,7 +57,6 @@ public class Piece {
 		return bi;
 		
 	}
-	
 	
 	public boolean esPieza(int i, int j) {
 		return pieza[i][j] == 3;
@@ -112,7 +111,7 @@ public class Piece {
 		pieza[x][y] = 4;
 	}
 	
-	public void deleteInicio() {
+	public void eliminarInicio() {
 		for (int i = 0; i < Template.TAM; i++)
 			for (int j = 0; j < Template.TAM; j++)
 				if (pieza[i][j] == 4) pieza[i][j] = 3;
@@ -124,14 +123,14 @@ public class Piece {
 				pieza[i][j] = p[i][j];
 	}
 	
-	public void delete() {
+	public void eliminar() {
 		for (int i = 0; i < Template.TAM; i++)
 			for (int j = 0; j < Template.TAM; j++)
 				pieza[i][j] = 0;
 	}
 	
 	
-	public void giro() {
+	public void girar() {
 		int [][] aux = new int[Template.TAM][Template.TAM];
 		for (int i = 0; i < Template.TAM; i++) 
 			for (int j = 0; j < Template.TAM; j++) 
@@ -161,7 +160,7 @@ public class Piece {
 		return null;
 	}
 	
-	public int countInicios(){
+	public int cuentaInicios(){
 		int inicio = 0;
 		for (int i = 0; i < Template.TAM; i++)
 			for (int j = 0; j < Template.TAM; j++)
