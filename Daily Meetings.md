@@ -1,5 +1,14 @@
 # proyectoblokus-mels
 
+## Reunión 41 (30/05/2021)
+**Participantes: Estibaliz Zubimendi y Sara Cano García.**
+#### ¿Qué se ha hecho hasta ahora?
+Diseñar diagramas de secuencia y clase de los patrones Observer y Strategy y actualizar wiki.
+#### ¿Qué se va a hacer a partir de ahora?
+Completar wiki y diagramas de secuencia y clase patrones Mediator e Iterator.
+#### Dudas/Problemas
+Ninguna.
+
 ## Reunión 40(28/05/2021)
 **Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
 #### ¿Qué se ha hecho hasta ahora?
