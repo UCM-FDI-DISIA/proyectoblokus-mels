@@ -1,5 +1,14 @@
 # proyectoblokus-mels
 
+## Reunión 42 (03/06/2021)
+**Participantes: Estibaliz Zubimendi y Sara Cano García.**
+#### ¿Qué se ha hecho hasta ahora?
+Diseñar diagramas de secuencia y clase de los patrón Iterator y actualizar wiki.
+#### ¿Qué se va a hacer a partir de ahora?
+Corregir wiki y diagramas de secuencia y clase.
+#### Dudas/Problemas
+Ninguna.
+
 ## Reunión 41 (30/05/2021)
 **Participantes: Estibaliz Zubimendi y Sara Cano García.**
 #### ¿Qué se ha hecho hasta ahora?
