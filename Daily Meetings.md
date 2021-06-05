@@ -1,5 +1,15 @@
 # proyectoblokus-mels
 
+## Reunión 43(05/06/2021)
+**Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
+#### ¿Qué se ha hecho hasta ahora?
+Hacer los JUnits.
+#### ¿Qué se va a hacer a partir de ahora?
+
+#### Dudas/Problemas
+
+
+
 ## Reunión 42 (03/06/2021)
 **Participantes: Estibaliz Zubimendi y Sara Cano García.**
 #### ¿Qué se ha hecho hasta ahora?
