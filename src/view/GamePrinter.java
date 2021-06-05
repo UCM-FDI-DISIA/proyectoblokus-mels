@@ -10,8 +10,8 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.*;
 
 import control.Game;
-import model.BlokusObserver;
 import model.Piece;
+import observers.BlokusObserver;
 
 public class GamePrinter extends JFrame implements BlokusObserver{
 	private static final long serialVersionUID = 1L;

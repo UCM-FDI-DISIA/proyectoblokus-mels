@@ -4,10 +4,10 @@ import java.awt.Point;
 
 import estrategias.Dificil;
 import estrategias.Facil;
-import model.BlokusObserver;
 import model.Board;
 import model.Piece;
 import model.Template;
+import observers.BlokusObserver;
 import player.Maquina;
 import player.Player;
 import view.GamePrinter;
