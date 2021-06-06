@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import control.Game;
+import model.Game;
 
 public class SeleccionWindow extends JFrame{
 

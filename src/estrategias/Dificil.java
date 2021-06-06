@@ -2,7 +2,6 @@ package estrategias;
 
 import java.awt.Point;
 
-import control.Game;
 import model.*;
 
 public class Dificil implements Strategy{

@@ -9,7 +9,7 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.*;
 
-import control.Game;
+import model.Game;
 import model.Piece;
 import observers.BlokusObserver;
 

@@ -1,5 +1,14 @@
 # proyectoblokus-mels
 
+## Reunión 44(06/06/2021)
+**Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
+#### ¿Qué se ha hecho hasta ahora?
+Separar Game de Controller
+#### ¿Qué se va a hacer a partir de ahora?
+Grabar el vídeo.
+#### Dudas/Problemas
+
+
 ## Reunión 43(05/06/2021)
 **Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
 #### ¿Qué se ha hecho hasta ahora?
@@ -7,7 +16,6 @@ Hacer los JUnits.
 #### ¿Qué se va a hacer a partir de ahora?
 
 #### Dudas/Problemas
-
 
 
 ## Reunión 42 (03/06/2021)
