@@ -6,7 +6,8 @@ import java.awt.GridLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import player.Player;
+
+import model.player.Player;
 
 public class PlayerPrinter {
 	

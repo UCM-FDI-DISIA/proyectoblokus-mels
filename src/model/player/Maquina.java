@@ -1,8 +1,8 @@
-package player;
+package model.player;
 
 import java.awt.Color;
 
-import estrategias.Strategy;
+import model.estrategias.Strategy;
 
 public class Maquina extends Player{
 

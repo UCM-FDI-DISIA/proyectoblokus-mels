@@ -1,4 +1,4 @@
-package observers;
+package model.observers;
 
 public interface BlokusObserver {
 	

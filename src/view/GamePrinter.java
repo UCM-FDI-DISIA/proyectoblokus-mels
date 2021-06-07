@@ -11,7 +11,7 @@ import javax.swing.*;
 
 import model.Game;
 import model.Piece;
-import observers.BlokusObserver;
+import model.observers.BlokusObserver;
 
 public class GamePrinter extends JFrame implements BlokusObserver{
 	private static final long serialVersionUID = 1L;

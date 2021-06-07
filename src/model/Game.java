@@ -2,11 +2,11 @@ package model;
 
 import java.awt.Point;
 
-import estrategias.Dificil;
-import estrategias.Facil;
-import observers.BlokusObserver;
-import player.Maquina;
-import player.Player;
+import model.estrategias.Dificil;
+import model.estrategias.Facil;
+import model.observers.BlokusObserver;
+import model.player.Maquina;
+import model.player.Player;
 import view.GamePrinter;
 
 public class Game {

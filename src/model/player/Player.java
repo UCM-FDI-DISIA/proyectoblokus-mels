@@ -1,4 +1,4 @@
-package player;
+package model.player;
 
 import java.awt.Color;
 import java.awt.Point;

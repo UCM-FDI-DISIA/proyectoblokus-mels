@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import model.Piece;
 import model.Template;
+import model.player.Player;
 
 class PlayerTest {
 
