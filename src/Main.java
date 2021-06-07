@@ -1,5 +1,4 @@
-package control;
-
+import control.Controller;
 import model.Game;
 
 public class Main {
