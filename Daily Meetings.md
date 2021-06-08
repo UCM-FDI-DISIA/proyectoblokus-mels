@@ -1,5 +1,13 @@
 # proyectoblokus-mels
 
+## Reunión 45(08/06/2021)
+**Participantes: Todas.**
+#### ¿Qué se ha hecho hasta ahora?
+Revisar la wiki y grabar vídeo explicativo.
+#### ¿Qué se va a hacer a partir de ahora?
+
+#### Dudas/Problemas
+
 ## Reunión 44(06/06/2021)
 **Participantes: María Crespo, María Díaz, Lucía Heredero y Elena Novillo.**
 #### ¿Qué se ha hecho hasta ahora?
