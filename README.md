@@ -5,3 +5,5 @@
 Controles: ratón.
 Interfaz Gráfica.
 Multijugador.
+
+Created by Sara Cano García, María Crespo Lewin, María Diaz Diaz, Lucía Heredero Illán, Elena Novillo Luceño y E. Zubimendi Solaguren. 
